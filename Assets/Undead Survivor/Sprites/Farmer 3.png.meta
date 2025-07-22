@@ -1,45 +1,9 @@
 fileFormatVersion: 2
 guid: 57a1443e67528144aa07582927559650
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 2348397160750708590
-    second: Farmer 3_0
-  - first:
-      213: -4605458585657807632
-    second: Farmer 3_1
-  - first:
-      213: 7010260781806718940
-    second: Farmer 3_2
-  - first:
-      213: 318548888209798707
-    second: Farmer 3_3
-  - first:
-      213: -2034322435669953184
-    second: Farmer 3_4
-  - first:
-      213: -4434558021251119381
-    second: Farmer 3_5
-  - first:
-      213: 7035249820980701841
-    second: Farmer 3_6
-  - first:
-      213: 2702677401189620455
-    second: Farmer 3_7
-  - first:
-      213: 2943540956996399735
-    second: Farmer 3_8
-  - first:
-      213: 1500680413769220434
-    second: Farmer 3_9
-  - first:
-      213: -1725531373568783924
-    second: Farmer 3_10
-  - first:
-      213: 8678545287053591939
-    second: Farmer 3_11
+  internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -70,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,9 +48,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -103,20 +67,19 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 4
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,10 +89,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,304 +125,295 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Farmer 3_0
+      name: Run 0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 62
-        width: 16
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e67f41e76ce279020800000000000000
-      internalID: 2348397160750708590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 3_1
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 62
-        width: 16
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0fce71e21df1610c0800000000000000
-      internalID: -4605458585657807632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 3_2
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 41
-        width: 16
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cdf01720a03794160800000000000000
-      internalID: 7010260781806718940
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 3_3
-      rect:
-        serializedVersion: 2
-        x: 39
+        x: 0
         y: 63
-        width: 16
+        width: 18
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 336375da686bb6400800000000000000
-      internalID: 318548888209798707
+      spriteID: 7e2b4788caacd844282a62b4e2ad1566
+      internalID: -2088749509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 3_4
+      name: Run 1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 19
+        y: 63
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf0fef3e79fe034694fcc437dde75d9
+      internalID: -1836318166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run 2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 63
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944816b4b17b43346ae045dc696ababd
+      internalID: -198311514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run 3
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 42
-        width: 16
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 065f847e582a4c3e0800000000000000
-      internalID: -2034322435669953184
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 3_5
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 41
-        width: 16
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: be6c77799f84572c0800000000000000
-      internalID: -4434558021251119381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 3_6
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 20
-        width: 16
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 19a6fa5107a32a160800000000000000
-      internalID: 7035249820980701841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 3_7
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 20
-        width: 16
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7ea1268e6c6d18520800000000000000
-      internalID: 2702677401189620455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 3_8
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 20
-        width: 16
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7727593a7ee89d820800000000000000
-      internalID: 2943540956996399735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 3_9
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 0
-        width: 16
+        width: 18
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 251c918a2ec73d410800000000000000
-      internalID: 1500680413769220434
+      spriteID: f74ac41b67e8eb44a8aa3e0dac809f47
+      internalID: -1997520891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 3_10
+      name: Run 4
       rect:
         serializedVersion: 2
-        x: 18
-        y: 0
-        width: 20
-        height: 18
+        x: 19
+        y: 42
+        width: 18
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cc904a5ab5ead08e0800000000000000
-      internalID: -1725531373568783924
+      spriteID: 33c6f95c6aa48ed4185b3e95ca72205f
+      internalID: -1017442464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 3_11
+      name: Run 5
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 42
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8987a8a777ef17b44bb0a24113065353
+      internalID: -2066638598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stand 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 153147a80e7052d40a3281cea89791f3
+      internalID: 938132271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stand 1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 21
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e7dae28fc0ec145a9535c13aabd657
+      internalID: -791905833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stand 2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 21
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07a3ecb7a76bbe439e343722bef9210
+      internalID: 1684076649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stand 3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb23b9d4f463a944289e397aa43f4c0d
+      internalID: 1883720508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9449f4559947b3942a7ade3dc0346119
+      internalID: 369909130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 1
       rect:
         serializedVersion: 2
         x: 38
         y: 0
         width: 18
-        height: 19
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 38548f925f2607870800000000000000
-      internalID: 8678545287053591939
+      spriteID: 2ed8cb88237c453409ff0d3733ab146a
+      internalID: 1773231339
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
-    customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    spriteCustomMetadata:
-      entries: []
     nameFileIdTable:
-      Farmer 3_0: 2348397160750708590
-      Farmer 3_1: -4605458585657807632
-      Farmer 3_10: -1725531373568783924
-      Farmer 3_11: 8678545287053591939
-      Farmer 3_2: 7010260781806718940
-      Farmer 3_3: 318548888209798707
-      Farmer 3_4: -2034322435669953184
-      Farmer 3_5: -4434558021251119381
-      Farmer 3_6: 7035249820980701841
-      Farmer 3_7: 2702677401189620455
-      Farmer 3_8: 2943540956996399735
-      Farmer 3_9: 1500680413769220434
+      Dead 0: 369909130
+      Run 0: -2088749509
+      Run 5: -2066638598
+      Stand 3: 1883720508
+      Run 2: -198311514
+      Run 3: -1997520891
+      Stand 0: 938132271
+      Stand 2: 1684076649
+      Run 4: -1017442464
+      Run 1: -1836318166
+      Dead 1: 1773231339
+      Stand 1: -791905833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238068
+  packageName: Undead Survivor Assets Pack
+  packageVersion: 1.3
+  assetPath: Assets/Undead Survivor/Sprites/Farmer 3.png
+  uploadId: 633846
