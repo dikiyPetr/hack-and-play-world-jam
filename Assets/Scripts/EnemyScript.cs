@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour
         internal static readonly int Hit = Animator.StringToHash("Hit");
     }
 
+    private int id;
     public float hp = 1f;
     public float moveSpeed = 1f;
     public Vector2 target = new(0.5f, 0.5f);
@@ -61,5 +62,15 @@ public class EnemyScript : MonoBehaviour
         {
             Hit(1);
         }
+    }
+
+    public void SetId(int newId)
+    {
+        id = newId;
+    }
+
+    public int GetId()
+    {
+        return id;
     }
 }
