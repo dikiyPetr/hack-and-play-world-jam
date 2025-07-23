@@ -32,7 +32,8 @@ public class RotationWeapon : MonoBehaviour
 
         for (int i = 0; i < weaponCount; i++)
         {
-            var rotationObject = Instantiate(new GameObject("WeaponRotator_" + i), transform);
+            var rotationObject = new GameObject("WeaponRotator_" + i);
+            rotationObject.transform.SetParent(transform);
             // Создаём объект оружия
             rotationInstances.Add(rotationObject);
             float angle = 360f / weaponCount * i;
