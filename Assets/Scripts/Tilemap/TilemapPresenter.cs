@@ -53,6 +53,7 @@ public class TilemapPresenter : MonoBehaviour
     [SerializeField] private TileInfo[] _tileInfos;
     [SerializeField] private Vector2Int _humonPos;
     [SerializeField] private Vector2Int _demonPos;
+    private Dictionary<int, TeleportEntity> teleports = new Dictionary<int, TeleportEntity>();
 
     private void Awake()
     {
@@ -75,7 +76,6 @@ public class TilemapPresenter : MonoBehaviour
 
     public async UniTask Move(Vector2 move)
     {
-        Debug.Log($"Move {move.x}, {move.y}");
         if (gameManager.humanController.isMoved || gameManager.demonController.isMoved)
         {
             return;
@@ -95,6 +95,12 @@ public class TilemapPresenter : MonoBehaviour
         for (var i = 0; i < resultHumanEffect.Count; i++)
         {
             var effect = resultHumanEffect[i];
+            if (effect is TeleportEffect)
+            {
+                ResolveTeleport((TeleportEffect)effect, posHolder, character);
+                continue;
+            }
+
             if (effect is PushEffect)
             {
                 await ResolveMove((MoveEffect)effect, posHolder, character);
@@ -116,6 +122,13 @@ public class TilemapPresenter : MonoBehaviour
         await character.MoveTo(position);
     }
 
+    private void ResolveTeleport(TeleportEffect effect, PosHolder posHolder, CharacterController character)
+    {
+        posHolder.pos = effect.to;
+        var position = GetTilePosition(posHolder.pos);
+        character.TeleportTo(position);
+    }
+
     private void FillMap(UnityEngine.Tilemaps.Tilemap tilemap, bool isForeground)
     {
         BoundsInt bounds = tilemap.cellBounds;
@@ -133,7 +146,7 @@ public class TilemapPresenter : MonoBehaviour
                 {
                     TileInfo found = _tileInfos.FirstOrDefault(info => info.tile == tile);
 
-                    var entity = found != null ? MapEntry(found) : null;
+                    var entity = found != null ? MapEntry(found, position) : null;
 
                     if (isForeground)
                     {
@@ -149,7 +162,7 @@ public class TilemapPresenter : MonoBehaviour
         }
     }
 
-    private Entity MapEntry(TileInfo info)
+    private Entity MapEntry(TileInfo info, Vector2Int position)
     {
         switch (info.type)
         {
@@ -158,21 +171,60 @@ public class TilemapPresenter : MonoBehaviour
             case TileInfoType.Wall:
                 return new Entity { type = EntityType.Obstacle, isInteractable = true };
             case TileInfoType.TeleportFrom:
-                return new InteractiveEntity
+                if (teleports.TryGetValue(info.intValue, out var teleportFrom))
                 {
-                    type = EntityType.Interactive,
-                    isInteractable = true,
-                    interactionType = InteractionType.Portal,
-                    value = info.intValue
-                };
+                    if (teleportFrom.from.HasValue)
+                    {
+                        if (teleportFrom.to.HasValue)
+                        {
+                            Debug.Log($"teleportFrom: {teleportFrom} intValue: {info.intValue} from: {teleportFrom.from} to:{teleportFrom.to}");
+                            return teleportFrom;
+                        }
+                        Debug.LogError($"ТЫ ЧЕ ПИДОР, ИДИ НАСТРОЙ ТЕЛЕПОРТЫ, ЛОХ! intValue: {info.intValue}");
+                    }
+                    else
+                    {
+                        teleportFrom.from = position;
+                    }
+                }
+                else
+                {
+                    var teleport = new TeleportEntity
+                        { type = EntityType.Teleport, isInteractable = true, from = position };
+                    teleports.Add(info.intValue, teleport);
+                    Debug.Log($"teleportFrom: {teleport} intValue: {info.intValue} from: {teleport.from} to:{teleport.to}");
+                    return teleport;
+                }
+
+                return teleportFrom;
             case TileInfoType.TeleportTo:
-                return new InteractiveEntity
+                if (teleports.TryGetValue(info.intValue, out var teleportTo))
                 {
-                    type = EntityType.Interactive,
-                    isInteractable = false,
-                    interactionType = InteractionType.Portal,
-                    value = info.intValue
-                };
+                    if (teleportTo.to.HasValue)
+                    {
+                        if (teleportTo.from.HasValue)
+                        {
+                            Debug.Log($"teleportFrom: {teleportTo} intValue: {info.intValue} from: {teleportTo.from} to:{teleportTo.to}");
+                            return teleportTo;
+                        }
+                        Debug.LogError($"ТЫ ЧЕ ПИДОР, ИДИ НАСТРОЙ ТЕЛЕПОРТЫ, ЛОХ! intValue: {info.intValue}");
+                    }
+                    else
+                    {
+                        teleportTo.to = position;
+                    }
+                }
+                else
+                {
+                    var teleport = new TeleportEntity
+                        { type = EntityType.Teleport, isInteractable = true, to = position };
+                    teleports.Add(info.intValue,teleport);
+                    Debug.Log($"teleportFrom: {teleport} intValue: {info.intValue} from: {teleport.from} to:{teleport.to}");
+                    return teleport;
+                }
+                Debug.Log($"teleportFrom: {teleportTo} intValue: {info.intValue} from: {teleportTo.from} to:{teleportTo.to}");
+                return teleportTo;
+
             case TileInfoType.Move:
                 return new PushEntity(info.direction) { type = EntityType.Push, isInteractable = true };
             case TileInfoType.Dead:
@@ -185,5 +237,7 @@ public class TilemapPresenter : MonoBehaviour
             default:
                 throw new ArgumentException($"Unknown TileInfoType: {info.type}");
         }
+
+        return null;
     }
 }

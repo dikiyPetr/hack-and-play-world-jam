@@ -17,6 +17,11 @@ namespace Data
             direction = Utils.DirectionToVector(directionEnum);
         }
         
+    }     
+    class TeleportEntity : Entity
+    {
+        public Vector2Int? from;
+        public Vector2Int? to;
     }    
     class CharacterEntity : Entity
     {
@@ -48,6 +53,7 @@ namespace Data
         Obstacle,
         Interactive,
         Dangerous,
+        Teleport,
     }
 
     enum DangerousType

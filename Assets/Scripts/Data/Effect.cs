@@ -56,11 +56,10 @@ namespace Data
 
     class TeleportEffect : Effect
     {
-        public Vector2Int from;
+        public Vector2Int to;
 
-        public TeleportEffect(Vector2Int from) : base(EffectType.Teleport)
+        public TeleportEffect() : base(EffectType.Teleport)
         {
-            this.from = from;
         }
     }
 

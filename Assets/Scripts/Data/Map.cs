@@ -66,7 +66,14 @@ namespace Data
                 var backgroundEffects = GetEffect(ceil.background, position);
                 foreach (var backgroundEffect in backgroundEffects)
                 {
-                    if (canMove && backgroundEffect is MoveEffect)
+                    if (backgroundEffect is MoveEffect)
+                    {
+                        if (canMove)
+                        {
+                            effectList.Add(backgroundEffect);
+                        }
+                    }
+                    else
                     {
                         effectList.Add(backgroundEffect);
                     }
@@ -102,6 +109,12 @@ namespace Data
                             new MoveEffect(position),
                             new PushEffect(position + ((PushEntity)entity).direction)
                         };
+                    case EntityType.Teleport:
+                        return new Effect[]
+                        {
+                            new MoveEffect(position),
+                            new TeleportEffect() { to = ((TeleportEntity)entity).to.Value }
+                        };
                     case EntityType.Character:
                         switch (((CharacterEntity)entity).characterType)
                         {
@@ -117,6 +130,7 @@ namespace Data
                                         new ContactEffect(EffectType.ContactWithDemon)
                                     };
                         }
+
                         break;
                 }
             }
