@@ -17,18 +17,23 @@ public class CharacterController : MonoBehaviour
     }
 
     public Vector2Int debugTarget;
-    public float moveSpeed;
+    public float moveDuration;
     private bool isMoved = false;
 
     public async UniTask MoveTo(Vector3 target)
     {
         if (isMoved) return;
         isMoved = true;
-        for (int i = 0; i < 100; i++)
+
+        Vector3 start = transform.position;
+        float time = 0f;
+
+        while (time < moveDuration)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed);
-            await UniTask.DelayFrame(1);
-            Debug.Log($"running {(target - transform.position).sqrMagnitude}");
+            float t = time / moveDuration;
+            transform.position = Vector3.Lerp(start, target, t);
+            await UniTask.Yield();
+            time += Time.deltaTime;
         }
 
         transform.position = target;

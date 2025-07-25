@@ -928,7 +928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a4e8d6621547d78cbb1f4ad4ac2a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanController: {fileID: 0}
+  humanController: {fileID: 1947517914}
   demonController: {fileID: 0}
   tilemapPresenter: {fileID: 284079944}
 --- !u!1001 &1586384442
@@ -979,6 +979,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2959820402160653448, guid: e137f8a373f6b9d418b96dcfbe95acea, type: 3}
+      propertyPath: moveDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3637704548556703680, guid: e137f8a373f6b9d418b96dcfbe95acea, type: 3}
       propertyPath: m_Name
       value: Run 2
@@ -997,6 +1001,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3637704548556703680, guid: e137f8a373f6b9d418b96dcfbe95acea, type: 3}
   m_PrefabInstance: {fileID: 1586384442}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1947517914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2959820402160653448, guid: e137f8a373f6b9d418b96dcfbe95acea, type: 3}
+  m_PrefabInstance: {fileID: 1586384442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947517913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699f20cb77958694ca776d2c8e8256a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1955787937
 GameObject:
   m_ObjectHideFlags: 0
