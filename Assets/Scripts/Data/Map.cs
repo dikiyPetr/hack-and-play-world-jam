@@ -5,25 +5,35 @@ using Object = System.Object;
 
 namespace Data
 {
+    public class PosHolder
+    {
+        public Vector2Int pos;
+
+        public PosHolder(Vector2Int pos)
+        {
+            this.pos = pos;
+        }
+    }
+
     public class Map
     {
         public Dictionary<Vector2Int, Ceil> ceils;
-        public Vector2Int humanPos;
-        public Vector2Int demonPos;
+        public PosHolder humanPos;
+        public PosHolder demonPos;
 
         public Map(Dictionary<Vector2Int, Ceil> ceils, Vector2Int humanPos, Vector2Int demonPos)
         {
             this.ceils = ceils;
-            this.humanPos = humanPos;
-            this.demonPos = demonPos;
+            this.humanPos = new PosHolder(humanPos);
+            this.demonPos = new PosHolder(demonPos);
         }
 
         public MoveResult Move(Vector2Int move)
         {
-            var humanCeil = ceils[humanPos + move];
-            var demonCeil = ceils[demonPos + move];
-            var humanEffects = GetEffectForActor(humanCeil, humanPos + move);
-            var demonEffects = GetEffectForActor(demonCeil, demonPos + move);
+            var humanCeil = ceils[humanPos.pos + move];
+            var demonCeil = ceils[demonPos.pos + move];
+            var humanEffects = GetEffectForActor(humanCeil, humanPos.pos + move);
+            var demonEffects = GetEffectForActor(demonCeil, demonPos.pos + move);
 
             return new MoveResult(humanEffects, demonEffects);
         }
@@ -75,7 +85,7 @@ namespace Data
                     case EntityType.Groud:
                         return new MoveEffect(position);
                     case EntityType.Character:
-                        switch (((Character)entity).characterType)
+                        switch (((CharacterEntity)entity).characterType)
                         {
                             case CharacterType.Human:
                                 return new ContactEffect(EffectType.ContactWithHuman);
@@ -112,11 +122,11 @@ namespace Data
             return new EmptyEffect();
         }
     }
-    
+
     public class MoveResult
     {
-        private List<Effect> demonEffect;
-        private List<Effect> humanEffect;
+        public List<Effect> demonEffect;
+        public List<Effect> humanEffect;
 
         public MoveResult(List<Effect> humanEffect, List<Effect> demonEffect)
         {

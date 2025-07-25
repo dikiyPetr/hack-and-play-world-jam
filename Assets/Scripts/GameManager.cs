@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private CharacterController humanController;
-    [SerializeField] private CharacterController demonController;
+    [SerializeField] public CharacterController humanController;
+    [SerializeField] public CharacterController demonController;
     [SerializeField] public TilemapPresenter tilemapPresenter;
 
     public Map map => tilemapPresenter.map;

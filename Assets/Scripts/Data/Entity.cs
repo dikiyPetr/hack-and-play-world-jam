@@ -8,7 +8,7 @@ namespace Data
         public bool isInteractable;
     }
 
-    class Character : Entity
+    class CharacterEntity : Entity
     {
         public CharacterType characterType; // Human, Demon, NPC
     }

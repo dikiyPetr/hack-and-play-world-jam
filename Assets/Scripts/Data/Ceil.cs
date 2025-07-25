@@ -13,6 +13,7 @@ namespace Data
         {
             this.position = position;
             this.background = background;
+            foreground = new List<Entity>();
         }
     }
 }
