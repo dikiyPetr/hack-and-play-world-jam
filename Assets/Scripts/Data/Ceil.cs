@@ -1,10 +1,18 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Data
 {
     public class Ceil
     {
-        public Entity background;
-        public List<Entity> foreground;
+        private Vector2Int position;
+        private Entity background;
+        private List<Entity> foreground;
+        
+        public Ceil(Vector2Int position, Entity background)
+        {
+            this.position = position;
+            this.background = background;
+        }
     }
 }

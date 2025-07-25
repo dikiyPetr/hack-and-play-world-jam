@@ -1,14 +1,43 @@
 fileFormatVersion: 2
-guid: 57a1443e67528144aa07582927559650
-AssetOrigin:
-  serializedVersion: 1
-  productId: 238068
-  packageName: Undead Survivor Assets Pack
-  packageVersion: 1.3
-  assetPath: Assets/Undead Survivor/Sprites/Farmer 3.png
-  uploadId: 633846
+guid: ec61304d6039dbb45861d7e422a1e6e4
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7122384716634428201
+    second: 662a47940cd5d114_0
+  - first:
+      213: -8943973551636403090
+    second: 662a47940cd5d114_1
+  - first:
+      213: -283421890363270951
+    second: 662a47940cd5d114_2
+  - first:
+      213: 7269143568889619588
+    second: 662a47940cd5d114_3
+  - first:
+      213: 4478494082248393064
+    second: 662a47940cd5d114_4
+  - first:
+      213: 4405344565364690410
+    second: 662a47940cd5d114_5
+  - first:
+      213: 8815953784512129264
+    second: 662a47940cd5d114_6
+  - first:
+      213: 945632190743513859
+    second: 662a47940cd5d114_7
+  - first:
+      213: 3067216179897396013
+    second: 662a47940cd5d114_8
+  - first:
+      213: -2666231131429958185
+    second: 662a47940cd5d114_9
+  - first:
+      213: 5292328984156870438
+    second: 662a47940cd5d114_10
+  - first:
+      213: 7784447616499334404
+    second: 662a47940cd5d114_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,9 +84,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 18
+  spritePixelsToUnits: 60
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -79,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -89,32 +118,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -143,265 +146,265 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run 0
+      name: dead_all
       rect:
         serializedVersion: 2
-        x: 0
-        y: 63
-        width: 18
-        height: 20
+        x: 16
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7e2b4788caacd844282a62b4e2ad1566
-      internalID: -2088749509
+      spriteID: 7dc655316d4382d90800000000000000
+      internalID: -7122384716634428201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 1
+      name: wall
       rect:
         serializedVersion: 2
-        x: 19
-        y: 63
-        width: 18
-        height: 20
+        x: 80
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1bf0fef3e79fe034694fcc437dde75d9
-      internalID: -1836318166
+      spriteID: e6c2936217f90e380800000000000000
+      internalID: -8943973551636403090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 2
+      name: floor_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 63
-        width: 18
-        height: 20
+        x: 146
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 944816b4b17b43346ae045dc696ababd
-      internalID: -198311514
+      spriteID: 9d8d357da45111cf0800000000000000
+      internalID: -283421890363270951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 3
+      name: floor_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 42
-        width: 18
-        height: 20
+        x: 211
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f74ac41b67e8eb44a8aa3e0dac809f47
-      internalID: -1997520891
+      spriteID: 4842bf4ff8f21e460800000000000000
+      internalID: 7269143568889619588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 4
+      name: tp_from
       rect:
         serializedVersion: 2
-        x: 19
-        y: 42
-        width: 18
-        height: 20
+        x: 276
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 33c6f95c6aa48ed4185b3e95ca72205f
-      internalID: -1017442464
+      spriteID: 861ca15c3aec62e30800000000000000
+      internalID: 4478494082248393064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 5
+      name: tp_to
       rect:
         serializedVersion: 2
-        x: 38
-        y: 42
-        width: 18
-        height: 20
+        x: 341
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8987a8a777ef17b44bb0a24113065353
-      internalID: -2066638598
+      spriteID: aed82cbaa8de22d30800000000000000
+      internalID: 4405344565364690410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stand 0
+      name: move_up
       rect:
         serializedVersion: 2
-        x: 0
-        y: 21
-        width: 18
-        height: 20
+        x: 406
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 153147a80e7052d40a3281cea89791f3
-      internalID: 938132271
+      spriteID: 0f82b12124f885a70800000000000000
+      internalID: 8815953784512129264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stand 1
+      name: move_right
       rect:
         serializedVersion: 2
-        x: 19
-        y: 21
-        width: 18
-        height: 20
+        x: 471
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 11e7dae28fc0ec145a9535c13aabd657
-      internalID: -791905833
+      spriteID: 30b0171a77f8f1d00800000000000000
+      internalID: 945632190743513859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stand 2
+      name: move_left
       rect:
         serializedVersion: 2
-        x: 38
-        y: 21
-        width: 18
-        height: 20
+        x: 536
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f07a3ecb7a76bbe439e343722bef9210
-      internalID: 1684076649
+      spriteID: d2b6d146dd0f09a20800000000000000
+      internalID: 3067216179897396013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stand 3
+      name: move_down
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 18
-        height: 20
+        x: 602
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: fb23b9d4f463a944289e397aa43f4c0d
-      internalID: 1883720508
+      spriteID: 7dd870a89e4affad0800000000000000
+      internalID: -2666231131429958185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead 0
+      name: dead_daemon
       rect:
         serializedVersion: 2
-        x: 19
-        y: 0
-        width: 18
-        height: 20
+        x: 667
+        y: 131
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9449f4559947b3942a7ade3dc0346119
-      internalID: 369909130
+      spriteID: 6279c2fcb21227940800000000000000
+      internalID: 5292328984156870438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead 1
+      name: dead_child
       rect:
         serializedVersion: 2
-        x: 38
-        y: 0
-        width: 18
-        height: 20
+        x: 732
+        y: 132
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2ed8cb88237c453409ff0d3733ab146a
-      internalID: 1773231339
+      spriteID: 40d341a0dd9e70c60800000000000000
+      internalID: 7784447616499334404
       vertices: []
       indices: 
       edges: []
@@ -410,7 +413,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 26ae098fa5414b444b393a75874dc544
     internalID: 0
     vertices: []
     indices: 
@@ -420,18 +423,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dead 0: 369909130
-      Dead 1: 1773231339
-      Run 0: -2088749509
-      Run 1: -1836318166
-      Run 2: -198311514
-      Run 3: -1997520891
-      Run 4: -1017442464
-      Run 5: -2066638598
-      Stand 0: 938132271
-      Stand 1: -791905833
-      Stand 2: 1684076649
-      Stand 3: 1883720508
+      dead_all: -7122384716634428201
+      dead_child: 7784447616499334404
+      dead_daemon: 5292328984156870438
+      floor_0: -283421890363270951
+      floor_1: 7269143568889619588
+      move_down: -2666231131429958185
+      move_left: 3067216179897396013
+      move_right: 945632190743513859
+      move_up: 8815953784512129264
+      tp_from: 4478494082248393064
+      tp_to: 4405344565364690410
+      wall: -8943973551636403090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
