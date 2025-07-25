@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Data;
 using UnityEngine;
 
 public static class Utils
@@ -14,5 +15,15 @@ public static class Utils
             case Direction.Right: return Vector2Int.right;
         }
         return Vector2Int.zero;
+    }    public static dangerousTargetType TargetToDangerousTargetType(Target target)
+    {
+        switch (target)
+        {
+            case Target.All: return dangerousTargetType.All;
+            case Target.Human: return dangerousTargetType.Human;
+            case Target.Demon: return dangerousTargetType.Demon;
+        }
+
+        return dangerousTargetType.All;
     }
 }

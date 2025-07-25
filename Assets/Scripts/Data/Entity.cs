@@ -37,7 +37,7 @@ namespace Data
 
     class DangerousEntity : Entity
     {
-        public DangerousType dangerousType;
+        public dangerousTargetType dangerousTargetType;
     }
 
     enum CharacterType
@@ -57,11 +57,11 @@ namespace Data
         Teleport,
     }
 
-    enum DangerousType
+    public enum dangerousTargetType
     {
-        Lava,
-        Mouse,
-        HolyWater,
+        All,
+        Human,
+        Demon,
     }
 
     enum InteractionType

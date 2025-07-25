@@ -409,6 +409,138 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tp_from_2
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 196
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 676fcc2e2c424b54cbc317c2d3f2e973
+      internalID: 1744782029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tp_to_2
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 196
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58eecac0d6917bd44a40ef41689134c7
+      internalID: -1140774594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tp_from_3
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 66
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1b2a73dd4c80842b584482cd97d469
+      internalID: -1832744268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tp_to_3
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 66
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b3e08a9bc9d00429f607cca53a2b63
+      internalID: -659973721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tp_from_4
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4eda211817bcd746a79cd3c800f931f
+      internalID: 520466007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tp_to_4
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad152847a0ccd1d458cfb68df37a8e99
+      internalID: 1227149862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -433,7 +565,13 @@ TextureImporter:
       move_right: 945632190743513859
       move_up: 8815953784512129264
       tp_from: 4478494082248393064
+      tp_from_2: 1744782029
+      tp_from_3: -1832744268
+      tp_from_4: 520466007
       tp_to: 4405344565364690410
+      tp_to_2: -1140774594
+      tp_to_3: -659973721
+      tp_to_4: 1227149862
       wall: -8943973551636403090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

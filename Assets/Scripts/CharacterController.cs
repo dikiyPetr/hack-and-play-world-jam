@@ -1,23 +1,13 @@
-using System;
 using Cysharp.Threading.Tasks;
-using Data;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEditor;
-using VContainer;
 
 public class CharacterController : MonoBehaviour
 {
-    public Character character { get; private set; }
-
-    private void Awake()
-    {
-        character = new Character();
-    }
-
     public Vector2Int debugTarget;
     public float moveDuration;
     public bool isMoved = false;
+    public bool isHuman;
 
     public async UniTask MoveTo(Vector3 target)
     {

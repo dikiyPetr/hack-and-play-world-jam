@@ -14,6 +14,7 @@ public class GameState : MonoBehaviour
     public LevelSetup levelSetup;
     private int collected = 0;
     public RestartUI restartUI;
+    public InputRecognizer inputRecognizer;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class GameState : MonoBehaviour
 
     public void StopGame(StopGameType type)
     {
+        inputRecognizer.DisableKeyboardListener();
         restartUI.Show(type);
     }
 }

@@ -52,6 +52,13 @@ namespace Data
         public ContactEffect(EffectType type) : base(type)
         {
         }
+    }    
+    class ContactWithDangerousEffect : Effect
+    {
+        public dangerousTargetType DangerousTargetType;
+        public ContactWithDangerousEffect() : base(EffectType.ContactWithDangerous)
+        {
+        }
     }
 
     class TeleportEffect : Effect
@@ -71,8 +78,6 @@ namespace Data
         PickupEffect,
         ContactWithDemon,
         ContactWithHuman,
-        ContactWithLava,
-        ContactWithMouse,
-        ContactWithHolyWater
+        ContactWithDangerous,
     }
 }

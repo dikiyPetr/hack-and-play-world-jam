@@ -9,6 +9,4 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameState gameState;
     [SerializeField] public AudioManager audioManager;
     public Map map => tilemapPresenter.map;
-    public Character human => humanController.character;
-    public Character demon => demonController.character;
 }

@@ -68,7 +68,8 @@ public class TilemapPresenter : MonoBehaviour
     public Vector3 GetTilePosition(Vector2Int pos)
     {
         return levelSetup.backgroud.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
-    }    
+    }
+
     public Vector2Int WorldToCell(Vector3 pos)
     {
         return (Vector2Int)levelSetup.backgroud.WorldToCell(pos);
@@ -96,10 +97,14 @@ public class TilemapPresenter : MonoBehaviour
         {
             gameManager.gameState.StopGame(StopGameType.Recursion);
         }
+
         foreach (var effect in resultHumanEffect)
         {
             switch (effect)
             {
+                case ContactWithDangerousEffect dangerousEffect:
+                    ResolveContactWithDangerous(dangerousEffect, character);
+                    continue;
                 case TeleportEffect teleportEffect:
                     ResolveTeleport(teleportEffect, posHolder, character);
                     continue;
@@ -146,17 +151,27 @@ public class TilemapPresenter : MonoBehaviour
         var cell = WorldToCell(character.transform.position);
         if (cell != effect.to)
         {
-            Debug.Log("qqqqqqqqq");
             posHolder.pos = effect.to;
             var position = GetTilePosition(posHolder.pos);
             gameManager.audioManager.PlayTeleport();
             OnMove();
             character.TeleportTo(position);
         }
-        else
+    }
+
+    private void ResolveContactWithDangerous(ContactWithDangerousEffect effect, CharacterController character)
+    {
+        if (effect.DangerousTargetType == dangerousTargetType.All)
         {
-            Debug.Log("eeeeeeee");
-            
+            gameManager.gameState.StopGame(StopGameType.Death);
+        }
+        else if (effect.DangerousTargetType == dangerousTargetType.Human && character.isHuman)
+        {
+            gameManager.gameState.StopGame(StopGameType.Death);
+        }
+        else if (effect.DangerousTargetType == dangerousTargetType.Demon && !character.isHuman)
+        {
+            gameManager.gameState.StopGame(StopGameType.Death);
         }
     }
 
@@ -212,8 +227,6 @@ public class TilemapPresenter : MonoBehaviour
                                 $"teleportFrom: {teleportFrom} intValue: {info.intValue} from: {teleportFrom.from} to:{teleportFrom.to}");
                             return teleportFrom;
                         }
-
-                        Debug.LogError($"ТЫ ЧЕ ПИДОР, ИДИ НАСТРОЙ ТЕЛЕПОРТЫ, ЛОХ! intValue: {info.intValue}");
                     }
                     else
                     {
@@ -242,8 +255,6 @@ public class TilemapPresenter : MonoBehaviour
                                 $"TeleportTo: {teleportTo} intValue: {info.intValue} from: {teleportTo.from} to:{teleportTo.to}");
                             return teleportTo;
                         }
-
-                        Debug.LogError($"ТЫ ЧЕ ПИДОР, ИДИ НАСТРОЙ ТЕЛЕПОРТЫ, ЛОХ! intValue: {info.intValue}");
                     }
                     else
                     {
@@ -271,7 +282,7 @@ public class TilemapPresenter : MonoBehaviour
                 {
                     type = EntityType.Dangerous,
                     isInteractable = true,
-                    dangerousType = DangerousType.Lava
+                    dangerousTargetType = Utils.TargetToDangerousTargetType(info.target)
                 };
             default:
                 throw new ArgumentException($"Unknown TileInfoType: {info.type}");

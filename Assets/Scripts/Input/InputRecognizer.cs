@@ -51,4 +51,13 @@ public class InputRecognizer : MonoBehaviour
     {
         moveInput = Vector2.zero;
     }
+
+    public void EnableKeyboardListener()
+    {
+        inputActions.Enable();
+    }
+    public void DisableKeyboardListener()
+    {
+        inputActions.Disable();
+    }
 }

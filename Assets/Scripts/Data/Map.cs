@@ -117,6 +117,12 @@ namespace Data
                         {
                             new MoveEffect(position),
                             new TeleportEffect() { to = ((TeleportEntity)entity).to.Value }
+                        };    
+                    case EntityType.Dangerous:
+                        return new Effect[]
+                        {
+                            new MoveEffect(position),
+                            new ContactWithDangerousEffect { DangerousTargetType = ((DangerousEntity)entity).dangerousTargetType }
                         };
                     case EntityType.Character:
                         switch (((CharacterEntity)entity).characterType)

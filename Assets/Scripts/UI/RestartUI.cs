@@ -32,6 +32,12 @@ public class RestartUI : MonoBehaviour
             root.Q<Label>("Label").text = "СЛИЯНИЕЕЕЕ!";
             return;
             
+        }  
+        if (type == StopGameType.Death)
+        {
+            root.Q<Label>("Label").text = "ЭТО СМЕРТЬ!";
+            return;
+            
         }
 
         root.Q<Label>("Label").text = "ЛОХ, ИДИ ИГРУ ДЕЛАЙ!";
