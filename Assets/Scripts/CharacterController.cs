@@ -38,6 +38,10 @@ public class CharacterController : MonoBehaviour
 
         transform.position = target;
         isMoved = false;
+    }    
+    public void TeleportTo(Vector3 target)
+    {
+        transform.position = target;
     }
 }
 

@@ -5,24 +5,51 @@ using Data;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+public enum Target
+{
+    None,
+    All,
+    Human,
+    Demon,
+}
+
+public enum Direction
+{
+    None,
+    Up,
+    Down,
+    Left,
+    Right,
+}
+
+public enum TileInfoType
+{
+    Ground,
+    Wall,
+    TeleportFrom,
+    TeleportTo,
+    Move,
+    Dead
+}
+
 [Serializable]
 public class TileInfo
 {
     public Tile tile;
-    public EntityType type;
+    public TileInfoType type;
+    public int intValue;
+    public Direction direction;
+    public Target target;
+}
 
-} 
 public class TilemapPresenter : MonoBehaviour
 {
     private UnityEngine.Tilemaps.Tilemap _tilemap;
     public Map map { get; private set; }
 
-    [SerializeField]
-    private TileInfo[] _tileInfos;
-    [SerializeField]
-    private Vector2Int _humonPos;   
-    [SerializeField]
-    private Vector2Int _demonPos;
+    [SerializeField] private TileInfo[] _tileInfos;
+    [SerializeField] private Vector2Int _humonPos;
+    [SerializeField] private Vector2Int _demonPos;
 
     private void Awake()
     {
@@ -34,6 +61,7 @@ public class TilemapPresenter : MonoBehaviour
     {
         return _tilemap.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
     }
+
     private void FillMap()
     {
         BoundsInt bounds = _tilemap.cellBounds;
@@ -45,18 +73,19 @@ public class TilemapPresenter : MonoBehaviour
             {
                 Vector2Int position = new Vector2Int(x, y);
                 UnityEngine.Tilemaps.TileBase tile = allTiles[(x - bounds.xMin) + (y - bounds.yMin) * bounds.size.x];
-                
+
 
                 if (tile != null)
                 {
                     TileInfo found = _tileInfos.FirstOrDefault(info => info.tile == tile);
                     var entity = new Entity();
-                    entity.type = found.type;
-                    var ceil = new Ceil(position,entity);
+                    // entity.type = found.type;
+                    var ceil = new Ceil(position, entity);
                     ceils.Add(position, ceil);
                 }
             }
         }
+
         map = new Map(ceils, _humonPos, _demonPos);
     }
 }
