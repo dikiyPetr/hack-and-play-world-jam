@@ -88,36 +88,46 @@ public class TilemapPresenter : MonoBehaviour
     private async UniTask ResolveEffect(List<Effect> resultHumanEffect, PosHolder posHolder,
         CharacterController character)
     {
-        for (var i = 0; i < resultHumanEffect.Count; i++)
+        foreach (var effect in resultHumanEffect)
         {
-            var effect = resultHumanEffect[i];
-            if (effect is TeleportEffect)
+            switch (effect)
             {
-                ResolveTeleport((TeleportEffect)effect, posHolder, character);
-                continue;
-            }
-
-            if (effect is PushEffect)
-            {
-                await ResolveMove((MoveEffect)effect, posHolder, character);
-                // рекурсия
-                var newEffects = map.MoveByPos(Vector2Int.zero, posHolder);
-                await ResolveEffect(newEffects, posHolder, character);
-                continue;
-            }
-
-            if (effect is MoveEffect)
-            {
-                await ResolveMove((MoveEffect)effect, posHolder, character);
-                continue;
+                case TeleportEffect teleportEffect:
+                    ResolveTeleport(teleportEffect, posHolder, character);
+                    continue;
+                case PushEffect pushEffect:
+                {
+                    await ResolveMove(pushEffect, posHolder, character);
+                    // рекурсия
+                    var newEffects = map.MoveByPos(Vector2Int.zero, posHolder);
+                    await ResolveEffect(newEffects, posHolder, character);
+                    continue;
+                }
+                case MoveEffect moveEffect:
+                    await ResolveMove(moveEffect, posHolder, character);
+                    continue;
             }
         }
+    }
+
+    void OnMove()
+    {
+        if (map.demonPos.pos == map.humanPos.pos)
+        {
+            OnHumanWithDeminMerged();
+        }
+    }
+
+    void OnHumanWithDeminMerged()
+    {
+        gameManager.gameState.OnDeathByMerge();
     }
 
     private async UniTask ResolveMove(MoveEffect effect, PosHolder posHolder, CharacterController character)
     {
         posHolder.pos = effect.target;
         var position = GetTilePosition(posHolder.pos);
+        OnMove();
         await character.MoveTo(position);
     }
 
@@ -125,6 +135,7 @@ public class TilemapPresenter : MonoBehaviour
     {
         posHolder.pos = effect.to;
         var position = GetTilePosition(posHolder.pos);
+        OnMove();
         character.TeleportTo(position);
     }
 
@@ -176,9 +187,11 @@ public class TilemapPresenter : MonoBehaviour
                     {
                         if (teleportFrom.to.HasValue)
                         {
-                            Debug.Log($"teleportFrom: {teleportFrom} intValue: {info.intValue} from: {teleportFrom.from} to:{teleportFrom.to}");
+                            Debug.Log(
+                                $"teleportFrom: {teleportFrom} intValue: {info.intValue} from: {teleportFrom.from} to:{teleportFrom.to}");
                             return teleportFrom;
                         }
+
                         Debug.LogError($"ТЫ ЧЕ ПИДОР, ИДИ НАСТРОЙ ТЕЛЕПОРТЫ, ЛОХ! intValue: {info.intValue}");
                     }
                     else
@@ -191,7 +204,8 @@ public class TilemapPresenter : MonoBehaviour
                     var teleport = new TeleportEntity
                         { type = EntityType.Teleport, isInteractable = true, from = position };
                     teleports.Add(info.intValue, teleport);
-                    Debug.Log($"teleportFrom: {teleport} intValue: {info.intValue} from: {teleport.from} to:{teleport.to}");
+                    Debug.Log(
+                        $"teleportFrom: {teleport} intValue: {info.intValue} from: {teleport.from} to:{teleport.to}");
                     return teleport;
                 }
 
@@ -203,9 +217,11 @@ public class TilemapPresenter : MonoBehaviour
                     {
                         if (teleportTo.from.HasValue)
                         {
-                            Debug.Log($"teleportFrom: {teleportTo} intValue: {info.intValue} from: {teleportTo.from} to:{teleportTo.to}");
+                            Debug.Log(
+                                $"teleportFrom: {teleportTo} intValue: {info.intValue} from: {teleportTo.from} to:{teleportTo.to}");
                             return teleportTo;
                         }
+
                         Debug.LogError($"ТЫ ЧЕ ПИДОР, ИДИ НАСТРОЙ ТЕЛЕПОРТЫ, ЛОХ! intValue: {info.intValue}");
                     }
                     else
@@ -217,11 +233,14 @@ public class TilemapPresenter : MonoBehaviour
                 {
                     var teleport = new TeleportEntity
                         { type = EntityType.Teleport, isInteractable = true, to = position };
-                    teleports.Add(info.intValue,teleport);
-                    Debug.Log($"teleportFrom: {teleport} intValue: {info.intValue} from: {teleport.from} to:{teleport.to}");
+                    teleports.Add(info.intValue, teleport);
+                    Debug.Log(
+                        $"teleportFrom: {teleport} intValue: {info.intValue} from: {teleport.from} to:{teleport.to}");
                     return teleport;
                 }
-                Debug.Log($"teleportFrom: {teleportTo} intValue: {info.intValue} from: {teleportTo.from} to:{teleportTo.to}");
+
+                Debug.Log(
+                    $"teleportFrom: {teleportTo} intValue: {info.intValue} from: {teleportTo.from} to:{teleportTo.to}");
                 return teleportTo;
 
             case TileInfoType.Move:

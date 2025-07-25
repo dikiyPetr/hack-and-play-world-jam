@@ -1,17 +1,32 @@
+using System;
 using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public LevelSetup levelSetup;
+    private int collected = 0;
+    public RestartUI restartUI;
+
+    private void Start()
     {
-        
+        collected = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Collect()
     {
-        
+        collected++;
+        if (levelSetup.collectableCount == collected)
+        {
+            FinishLevel();
+        }
     }
-    
+
+    void FinishLevel()
+    {
+    }
+
+    public void OnDeathByMerge()
+    {
+        restartUI.Show();
+    }
 }

@@ -2,20 +2,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class RestartUI : MonoBehaviour
+public class HudUI : MonoBehaviour
 {
     private void OnEnable()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
-   
+
         Button playButton = root.Q<Button>("RestartButton");
         if (playButton != null)
         {
-            playButton.clicked += OnPlayClicked;
+            playButton.clicked += OnRestartClicked;
         }
     }
 
-    private void OnPlayClicked()
+    private void OnRestartClicked()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
