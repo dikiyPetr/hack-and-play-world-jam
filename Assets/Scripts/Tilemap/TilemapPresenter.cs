@@ -104,6 +104,9 @@ public class TilemapPresenter : MonoBehaviour
             if (effect is PushEffect)
             {
                 await ResolveMove((MoveEffect)effect, posHolder, character);
+                // рекурсия
+                var newEffects = map.MoveByPos(Vector2Int.zero, posHolder);
+                await ResolveEffect(newEffects, posHolder, character);
                 continue;
             }
 
