@@ -86,8 +86,12 @@ public class TilemapPresenter : MonoBehaviour
     }
 
     private async UniTask ResolveEffect(List<Effect> resultHumanEffect, PosHolder posHolder,
-        CharacterController character)
+        CharacterController character, int recursionCount = 0)
     {
+        if (recursionCount > 15)
+        {
+            gameManager.gameState.StopGame(StopGameType.Recursion);
+        }
         foreach (var effect in resultHumanEffect)
         {
             switch (effect)
@@ -100,7 +104,7 @@ public class TilemapPresenter : MonoBehaviour
                     await ResolveMove(pushEffect, posHolder, character);
                     // рекурсия
                     var newEffects = map.MoveByPos(Vector2Int.zero, posHolder);
-                    await ResolveEffect(newEffects, posHolder, character);
+                    await ResolveEffect(newEffects, posHolder, character, recursionCount + 1);
                     continue;
                 }
                 case MoveEffect moveEffect:
@@ -120,7 +124,7 @@ public class TilemapPresenter : MonoBehaviour
 
     void OnHumanWithDeminMerged()
     {
-        gameManager.gameState.OnDeathByMerge();
+        gameManager.gameState.StopGame(StopGameType.Merge);
     }
 
     private async UniTask ResolveMove(MoveEffect effect, PosHolder posHolder, CharacterController character)

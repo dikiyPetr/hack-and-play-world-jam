@@ -1,4 +1,4 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Label text="Молодец" style="color: rgb(255, 255, 255); height: 26px;" />
+    <ui:Label text="Молодец" name="Label" style="color: rgb(255, 255, 255); height: 26px;" />
     <ui:Button text="Следующий лвл" name="Button" style="-unity-text-align: middle-left;" />
 </ui:UXML>

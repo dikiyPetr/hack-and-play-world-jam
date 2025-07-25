@@ -1,6 +1,14 @@
 using System;
 using UnityEngine;
 
+public enum StopGameType
+{
+    None,
+    Finish,
+    Death,
+    Merge,
+    Recursion,
+}
 public class GameState : MonoBehaviour
 {
     public LevelSetup levelSetup;
@@ -25,8 +33,8 @@ public class GameState : MonoBehaviour
     {
     }
 
-    public void OnDeathByMerge()
+    public void StopGame(StopGameType type)
     {
-        restartUI.Show();
+        restartUI.Show(type);
     }
 }

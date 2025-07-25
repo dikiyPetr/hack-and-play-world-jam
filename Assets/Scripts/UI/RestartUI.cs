@@ -17,9 +17,24 @@ public class RestartUI : MonoBehaviour
         }
     }
 
-    public void Show()
+    public void Show(StopGameType type)
     {
         root.visible = true;
+
+        if (type == StopGameType.Recursion)
+        {
+            root.Q<Label>("Label").text = "Закатался на карусели";
+            return;
+        }
+
+        if (type == StopGameType.Merge)
+        {
+            root.Q<Label>("Label").text = "СЛИЯНИЕЕЕЕ!";
+            return;
+            
+        }
+
+        root.Q<Label>("Label").text = "ЛОХ, ИДИ ИГРУ ДЕЛАЙ!";
     }
 
     private void OnRestartClicked()
