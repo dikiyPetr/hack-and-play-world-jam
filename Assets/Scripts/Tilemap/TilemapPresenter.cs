@@ -45,22 +45,25 @@ public class TileInfo
 public class TilemapPresenter : MonoBehaviour
 {
     public GameManager gameManager;
-    private UnityEngine.Tilemaps.Tilemap _tilemap;
     public Map map { get; private set; }
 
+    public UnityEngine.Tilemaps.Tilemap backgroud;
+    public UnityEngine.Tilemaps.Tilemap foreground;
     [SerializeField] private TileInfo[] _tileInfos;
     [SerializeField] private Vector2Int _humonPos;
     [SerializeField] private Vector2Int _demonPos;
 
     private void Awake()
     {
-        _tilemap = GetComponentInChildren<UnityEngine.Tilemaps.Tilemap>();
-        FillMap();
+        var ceils = new Dictionary<Vector2Int, Ceil>();
+        map = new Map(ceils, _humonPos, _demonPos);
+        FillMap(backgroud, false);
+        FillMap(foreground, true);
     }
 
     public Vector3 GetTilePosition(Vector2Int pos)
     {
-        return _tilemap.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
+        return backgroud.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
     }
 
     public void Move(Vector2 move)
@@ -94,11 +97,11 @@ public class TilemapPresenter : MonoBehaviour
         character.MoveTo(position);
     }
 
-    private void FillMap()
+    private void FillMap(UnityEngine.Tilemaps.Tilemap tilemap, bool isForeground)
     {
-        BoundsInt bounds = _tilemap.cellBounds;
-        UnityEngine.Tilemaps.TileBase[] allTiles = _tilemap.GetTilesBlock(bounds);
-        Dictionary<Vector2Int, Ceil> ceils = new();
+        BoundsInt bounds = tilemap.cellBounds;
+        UnityEngine.Tilemaps.TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
+        Dictionary<Vector2Int, Ceil> ceils = map.ceils;
         for (int x = bounds.xMin; x < bounds.xMax; x++)
         {
             for (int y = bounds.yMin; y < bounds.yMax; y++)
@@ -113,7 +116,7 @@ public class TilemapPresenter : MonoBehaviour
 
                     var entity = found != null ? MapEntry(found) : null;
 
-                    if (ceils.ContainsKey(position))
+                    if (isForeground)
                     {
                         ceils[position].foreground.Add(entity);
                     }
@@ -125,8 +128,6 @@ public class TilemapPresenter : MonoBehaviour
                 }
             }
         }
-
-        map = new Map(ceils, _humonPos, _demonPos);
     }
 
     private Entity MapEntry(TileInfo info)
