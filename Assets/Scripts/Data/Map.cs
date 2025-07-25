@@ -49,21 +49,27 @@ namespace Data
                     var additionalEntry = ceil.foreground[i];
                     if (additionalEntry.isInteractable)
                     {
-                        var foregroundEffect = GetEffect(additionalEntry, position);
-                        if (foregroundEffect.breakMove)
+                        var foregroundEffects = GetEffect(additionalEntry, position);
+                        foreach (var effect in foregroundEffects)
                         {
-                            canMove = false;
-                        }
+                            if (effect.breakMove)
+                            {
+                                canMove = false;
+                            }
 
-                        effectList.Add(foregroundEffect);
+                            effectList.Add(effect);
+                        }
                     }
                 }
 
 
-                var backgroundEffect = GetEffect(ceil.background, position);
-                if (canMove && backgroundEffect is MoveEffect)
+                var backgroundEffects = GetEffect(ceil.background, position);
+                foreach (var backgroundEffect in backgroundEffects)
                 {
-                    effectList.Add(backgroundEffect);
+                    if (canMove && backgroundEffect is MoveEffect)
+                    {
+                        effectList.Add(backgroundEffect);
+                    }
                 }
             }
 
@@ -71,55 +77,54 @@ namespace Data
             return effectList;
         }
 
-        Effect GetEffect(Entity entity, Vector2Int position)
+        Effect[] GetEffect(Entity entity, Vector2Int position)
         {
             if (entity.isInteractable)
             {
                 switch (entity.type)
                 {
                     case EntityType.Obstacle:
-                        return new EmptyEffect()
+                        return new Effect[]
                         {
-                            breakMove = true
+                            new EmptyEffect()
+                            {
+                                breakMove = true
+                            }
                         };
                     case EntityType.Groud:
-                        return new MoveEffect(position);
+                        return new Effect[]
+                        {
+                            new MoveEffect(position)
+                        };
+                    case EntityType.Push:
+                        return new Effect[]
+                        {
+                            new MoveEffect(position),
+                            new PushEffect(position + ((PushEntity)entity).direction)
+                        };
                     case EntityType.Character:
                         switch (((CharacterEntity)entity).characterType)
                         {
                             case CharacterType.Human:
-                                return new ContactEffect(EffectType.ContactWithHuman);
+                                return new Effect[]
+                                {
+                                    new ContactEffect(EffectType.ContactWithHuman)
+                                };
                             case CharacterType.Demon:
-                                return new ContactEffect(EffectType.ContactWithDemon);
+                                return
+                                    new Effect[]
+                                    {
+                                        new ContactEffect(EffectType.ContactWithDemon)
+                                    };
                         }
-
-                        break;
-                    case EntityType.Dangerous:
-                        switch (((DangerousEntity)entity).dangerousType)
-                        {
-                            case DangerousType.Lava:
-                                return new ContactEffect(EffectType.ContactWithLava);
-                            case DangerousType.Mouse:
-                                return new ContactEffect(EffectType.ContactWithMouse);
-                            case DangerousType.HolyWater:
-                                return new ContactEffect(EffectType.ContactWithHolyWater);
-                        }
-
-                        break;
-                    case EntityType.Interactive:
-                        switch (((InteractiveEntity)entity).interactionType)
-                        {
-                            case InteractionType.Pickup:
-                                return new PickupEffect(((InteractiveEntity)entity).value);
-                            case InteractionType.Portal:
-                                return new TeleportEffect(position);
-                        }
-
                         break;
                 }
             }
 
-            return new EmptyEffect();
+            return new Effect[]
+            {
+                new EmptyEffect()
+            };
         }
     }
 
@@ -133,73 +138,5 @@ namespace Data
             this.demonEffect = demonEffect;
             this.humanEffect = humanEffect;
         }
-    }
-
-    public abstract class Effect
-    {
-        public EffectType type;
-        public bool breakMove = false;
-
-        public Effect(EffectType type)
-        {
-            this.type = type;
-        }
-    }
-
-    class MoveEffect : Effect
-    {
-        public Vector2Int target;
-
-        public MoveEffect(Vector2Int target) : base(EffectType.Move)
-        {
-            this.target = target;
-        }
-    }
-
-    class PickupEffect : Effect
-    {
-        public Object value;
-
-        public PickupEffect(Object value) : base(EffectType.PickupEffect)
-        {
-            this.value = value;
-        }
-    }
-
-    class EmptyEffect : Effect
-    {
-        public EmptyEffect() : base(EffectType.None)
-        {
-        }
-    }
-
-    class ContactEffect : Effect
-    {
-        public ContactEffect(EffectType type) : base(type)
-        {
-        }
-    }
-
-    class TeleportEffect : Effect
-    {
-        public Vector2Int from;
-
-        public TeleportEffect(Vector2Int from) : base(EffectType.Teleport)
-        {
-            this.from = from;
-        }
-    }
-
-    public enum EffectType
-    {
-        None,
-        Move,
-        Teleport,
-        PickupEffect,
-        ContactWithDemon,
-        ContactWithHuman,
-        ContactWithLava,
-        ContactWithMouse,
-        ContactWithHolyWater
     }
 }

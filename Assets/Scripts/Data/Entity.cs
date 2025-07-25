@@ -1,4 +1,5 @@
-﻿using System;
+﻿using UnityEngine;
+using Object = System.Object;
 
 namespace Data
 {
@@ -8,20 +9,29 @@ namespace Data
         public bool isInteractable;
     }
 
+    class PushEntity : Entity
+    {
+        public Vector2Int direction;
+        public PushEntity(Direction directionEnum)
+        {
+            direction = Utils.DirectionToVector(directionEnum);
+        }
+        
+    }    
     class CharacterEntity : Entity
     {
-        public CharacterType characterType; // Human, Demon, NPC
+        public CharacterType characterType;
     }
 
     class InteractiveEntity : Entity
     {
         public Object value;
-        public InteractionType interactionType; // Human, Demon, NPC
+        public InteractionType interactionType;
     }
 
     class DangerousEntity : Entity
     {
-        public DangerousType dangerousType; // Human, Demon, NPC
+        public DangerousType dangerousType;
     }
 
     enum CharacterType
@@ -33,6 +43,7 @@ namespace Data
     public enum EntityType
     {
         Groud,
+        Push,
         Character,
         Obstacle,
         Interactive,

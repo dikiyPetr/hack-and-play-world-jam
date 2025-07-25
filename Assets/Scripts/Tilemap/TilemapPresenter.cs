@@ -95,9 +95,16 @@ public class TilemapPresenter : MonoBehaviour
         for (var i = 0; i < resultHumanEffect.Count; i++)
         {
             var effect = resultHumanEffect[i];
+            if (effect is PushEffect)
+            {
+                await ResolveMove((MoveEffect)effect, posHolder, character);
+                continue;
+            }
+
             if (effect is MoveEffect)
             {
                 await ResolveMove((MoveEffect)effect, posHolder, character);
+                continue;
             }
         }
     }
@@ -167,7 +174,7 @@ public class TilemapPresenter : MonoBehaviour
                     value = info.intValue
                 };
             case TileInfoType.Move:
-                return new Entity { type = EntityType.Groud, isInteractable = true };
+                return new PushEntity(info.direction) { type = EntityType.Push, isInteractable = true };
             case TileInfoType.Dead:
                 return new DangerousEntity
                 {
