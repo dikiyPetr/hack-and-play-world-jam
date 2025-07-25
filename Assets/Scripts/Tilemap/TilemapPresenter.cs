@@ -48,30 +48,26 @@ public class TilemapPresenter : MonoBehaviour
     public GameManager gameManager;
     public Map map { get; private set; }
     public LevelSetup levelSetup;
-    public UnityEngine.Tilemaps.Tilemap backgroud;
-    public UnityEngine.Tilemaps.Tilemap foreground;
     [SerializeField] private TileInfo[] _tileInfos;
-    [SerializeField] private Vector2Int _humonPos;
-    [SerializeField] private Vector2Int _demonPos;
     private Dictionary<int, TeleportEntity> teleports = new Dictionary<int, TeleportEntity>();
 
     private void Awake()
     {
         var ceils = new Dictionary<Vector2Int, Ceil>();
-        map = new Map(ceils, _humonPos, _demonPos);
-        FillMap(backgroud, false);
-        FillMap(foreground, true);
+        map = new Map(ceils, levelSetup._humonPos, levelSetup._demonPos);
+        FillMap(levelSetup.backgroud, false);
+        FillMap(levelSetup.foreground, true);
     }
 
     private void Start()
     {
-        gameManager.humanController.TeleportTo(GetTilePosition(_humonPos));
-        gameManager.demonController.TeleportTo(GetTilePosition(_demonPos));
+        gameManager.humanController.TeleportTo(GetTilePosition(levelSetup._humonPos));
+        gameManager.demonController.TeleportTo(GetTilePosition(levelSetup._demonPos));
     }
 
     public Vector3 GetTilePosition(Vector2Int pos)
     {
-        return backgroud.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
+        return levelSetup.backgroud.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
     }
 
     public async UniTask Move(Vector2 move)
