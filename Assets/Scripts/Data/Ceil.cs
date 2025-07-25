@@ -5,10 +5,10 @@ namespace Data
 {
     public class Ceil
     {
-        private Vector2Int position;
-        private Entity background;
-        private List<Entity> foreground;
-        
+        public Vector2Int position { get; }
+        public Entity background { get; }
+        public List<Entity> foreground { get; }
+
         public Ceil(Vector2Int position, Entity background)
         {
             this.position = position;
