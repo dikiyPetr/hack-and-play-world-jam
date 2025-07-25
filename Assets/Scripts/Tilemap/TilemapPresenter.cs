@@ -62,6 +62,12 @@ public class TilemapPresenter : MonoBehaviour
         FillMap(foreground, true);
     }
 
+    private void Start()
+    {
+        gameManager.humanController.TeleportTo(GetTilePosition(_humonPos));
+        gameManager.demonController.TeleportTo(GetTilePosition(_demonPos));
+    }
+
     public Vector3 GetTilePosition(Vector2Int pos)
     {
         return backgroud.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));

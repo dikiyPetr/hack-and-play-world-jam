@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class InputRecognizer : MonoBehaviour
 {
-    public TilemapPresenter tilemap;
+    public GameManager gameManager;
     private PlayerInputActions inputActions;
     private Vector2 moveInput;
 
@@ -37,7 +37,7 @@ public class InputRecognizer : MonoBehaviour
     {
         if (moveInput != Vector2.zero)
         {
-            tilemap.Move(moveInput).Forget();
+            gameManager.tilemapPresenter.Move(moveInput).Forget();
         }
     }
 
