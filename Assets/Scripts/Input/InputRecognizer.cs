@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -36,12 +37,13 @@ public class InputRecognizer : MonoBehaviour
     {
         if (moveInput != Vector2.zero)
         {
-            tilemap.Move(moveInput);
+            tilemap.Move(moveInput).Forget();
         }
     }
 
     private void OnMovePerformed(InputAction.CallbackContext ctx)
     {
+        
         moveInput = ctx.ReadValue<Vector2>();
     }
 

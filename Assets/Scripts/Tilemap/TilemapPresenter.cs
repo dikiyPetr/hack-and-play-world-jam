@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Data;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -63,35 +64,40 @@ public class TilemapPresenter : MonoBehaviour
         return _tilemap.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
     }
 
-    public void Move(Vector2 move)
+    public async UniTask Move(Vector2 move)
     {
-        if (gameManager.humanController.isMoved)
+        Debug.Log($"Move {move.x}, {move.y}");
+        if (gameManager.humanController.isMoved || gameManager.demonController.isMoved)
         {
             return;
         }
 
         var intMove = new Vector2Int((int)move.x, (int)move.y);
         var result = map.Move(intMove);
-        ResolveEffect(result.humanEffect, map.humanPos, gameManager.humanController);
+        await (
+            ResolveEffect(result.humanEffect, map.humanPos, gameManager.humanController),
+            ResolveEffect(result.demonEffect, map.demonPos, gameManager.demonController)
+        );
     }
 
-    void ResolveEffect(List<Effect> resultHumanEffect, PosHolder posHolder, CharacterController character)
+    private async UniTask ResolveEffect(List<Effect> resultHumanEffect, PosHolder posHolder,
+        CharacterController character)
     {
         for (var i = 0; i < resultHumanEffect.Count; i++)
         {
             var effect = resultHumanEffect[i];
             if (effect is MoveEffect)
             {
-                ResolveMove((MoveEffect)effect, posHolder, character);
+                await ResolveMove((MoveEffect)effect, posHolder, character);
             }
         }
     }
 
-    void ResolveMove(MoveEffect effect, PosHolder posHolder, CharacterController character)
+    private async UniTask ResolveMove(MoveEffect effect, PosHolder posHolder, CharacterController character)
     {
         posHolder.pos = effect.target;
         var position = GetTilePosition(posHolder.pos);
-        character.MoveTo(position);
+        await character.MoveTo(position);
     }
 
     private void FillMap()
