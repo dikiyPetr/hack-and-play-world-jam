@@ -6,8 +6,7 @@ using VContainer;
 
 public class Character
 {
- 
-  
+    
     public Character()
     {
    

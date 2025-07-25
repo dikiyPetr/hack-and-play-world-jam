@@ -47,7 +47,7 @@ public class TilemapPresenter : MonoBehaviour
 {
     public GameManager gameManager;
     public Map map { get; private set; }
-
+    public LevelSetup levelSetup;
     public UnityEngine.Tilemaps.Tilemap backgroud;
     public UnityEngine.Tilemaps.Tilemap foreground;
     [SerializeField] private TileInfo[] _tileInfos;
