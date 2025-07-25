@@ -34,18 +34,19 @@ public class InputRecognizer : MonoBehaviour
 
     void Update()
     {
+        if (moveInput != Vector2.zero)
+        {
+            tilemap.Move(moveInput);
+        }
     }
 
     private void OnMovePerformed(InputAction.CallbackContext ctx)
     {
         moveInput = ctx.ReadValue<Vector2>();
-        Debug.Log(moveInput.ToString());
-        tilemap.Move(moveInput);
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext ctx)
     {
         moveInput = Vector2.zero;
     }
-    
 }

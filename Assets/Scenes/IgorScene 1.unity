@@ -218,8 +218,8 @@ MonoBehaviour:
     type: 0
   - tile: {fileID: 11400000, guid: 6ed705f0ad41aa54f8b9e5e76fd3d653, type: 2}
     type: 0
-  _humonPos: {x: 0, y: 0}
-  _demonPos: {x: 0, y: 0}
+  _humonPos: {x: 1, y: -1}
+  _demonPos: {x: 1, y: -1}
 --- !u!483693784 &284079945
 TilemapRenderer:
   m_ObjectHideFlags: 0
