@@ -15,7 +15,8 @@ public class TileInfo
 public class TilemapPresenter : MonoBehaviour
 {
     private UnityEngine.Tilemaps.Tilemap _tilemap;
-    private Map _map;
+    public Map map { get; private set; }
+
     [SerializeField]
     private TileInfo[] _tileInfos;
     [SerializeField]
@@ -29,6 +30,10 @@ public class TilemapPresenter : MonoBehaviour
         FillMap();
     }
 
+    public Vector3 GetTilePosition(Vector2Int pos)
+    {
+        return _tilemap.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
+    }
     private void FillMap()
     {
         BoundsInt bounds = _tilemap.cellBounds;
@@ -40,6 +45,7 @@ public class TilemapPresenter : MonoBehaviour
             {
                 Vector2Int position = new Vector2Int(x, y);
                 UnityEngine.Tilemaps.TileBase tile = allTiles[(x - bounds.xMin) + (y - bounds.yMin) * bounds.size.x];
+                
 
                 if (tile != null)
                 {
@@ -51,6 +57,6 @@ public class TilemapPresenter : MonoBehaviour
                 }
             }
         }
-        _map = new Map(ceils, _humonPos, _demonPos);
+        map = new Map(ceils, _humonPos, _demonPos);
     }
 }
