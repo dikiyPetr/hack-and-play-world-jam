@@ -22,6 +22,7 @@ namespace Data
     {
         public Vector2Int? from;
         public Vector2Int? to;
+        public bool isFrom;
     }    
     class CharacterEntity : Entity
     {

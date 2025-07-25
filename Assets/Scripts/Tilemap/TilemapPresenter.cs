@@ -68,6 +68,10 @@ public class TilemapPresenter : MonoBehaviour
     public Vector3 GetTilePosition(Vector2Int pos)
     {
         return levelSetup.backgroud.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
+    }    
+    public Vector2Int WorldToCell(Vector3 pos)
+    {
+        return (Vector2Int)levelSetup.backgroud.WorldToCell(pos);
     }
 
     public async UniTask Move(Vector2 move)
@@ -132,15 +136,28 @@ public class TilemapPresenter : MonoBehaviour
         posHolder.pos = effect.target;
         var position = GetTilePosition(posHolder.pos);
         OnMove();
+        gameManager.audioManager.PlaySteps();
         await character.MoveTo(position);
+        gameManager.audioManager.StopSteps();
     }
 
     private void ResolveTeleport(TeleportEffect effect, PosHolder posHolder, CharacterController character)
     {
-        posHolder.pos = effect.to;
-        var position = GetTilePosition(posHolder.pos);
-        OnMove();
-        character.TeleportTo(position);
+        var cell = WorldToCell(character.transform.position);
+        if (cell != effect.to)
+        {
+            Debug.Log("qqqqqqqqq");
+            posHolder.pos = effect.to;
+            var position = GetTilePosition(posHolder.pos);
+            gameManager.audioManager.PlayTeleport();
+            OnMove();
+            character.TeleportTo(position);
+        }
+        else
+        {
+            Debug.Log("eeeeeeee");
+            
+        }
     }
 
     private void FillMap(UnityEngine.Tilemaps.Tilemap tilemap, bool isForeground)
@@ -206,7 +223,7 @@ public class TilemapPresenter : MonoBehaviour
                 else
                 {
                     var teleport = new TeleportEntity
-                        { type = EntityType.Teleport, isInteractable = true, from = position };
+                        { type = EntityType.Teleport, isInteractable = true, from = position, isFrom = true };
                     teleports.Add(info.intValue, teleport);
                     Debug.Log(
                         $"teleportFrom: {teleport} intValue: {info.intValue} from: {teleport.from} to:{teleport.to}");
@@ -222,7 +239,7 @@ public class TilemapPresenter : MonoBehaviour
                         if (teleportTo.from.HasValue)
                         {
                             Debug.Log(
-                                $"teleportFrom: {teleportTo} intValue: {info.intValue} from: {teleportTo.from} to:{teleportTo.to}");
+                                $"TeleportTo: {teleportTo} intValue: {info.intValue} from: {teleportTo.from} to:{teleportTo.to}");
                             return teleportTo;
                         }
 
@@ -236,7 +253,7 @@ public class TilemapPresenter : MonoBehaviour
                 else
                 {
                     var teleport = new TeleportEntity
-                        { type = EntityType.Teleport, isInteractable = true, to = position };
+                        { type = EntityType.Teleport, isInteractable = true, to = position, isFrom = false };
                     teleports.Add(info.intValue, teleport);
                     Debug.Log(
                         $"teleportFrom: {teleport} intValue: {info.intValue} from: {teleport.from} to:{teleport.to}");
