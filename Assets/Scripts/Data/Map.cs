@@ -6,19 +6,19 @@ namespace Data
 {
     public class Map
     {
-        public Dictionary<Vector2Int, Entity> ceils;
+        public Dictionary<Vector2Int, Ceil> ceils;
         public Vector2Int humanPos;
         public Vector2Int demonPos;
 
-        public Map(Dictionary<Vector2Int, Entity> ceils, Vector2Int humanPos, Vector2Int demonPos)
+        public Map(Dictionary<Vector2Int, Ceil> ceils, Vector2Int humanPos, Vector2Int demonPos)
         {
             this.ceils = ceils;
         }
 
         void Move(Vector2Int move)
         {
-            // var humanCell = cells[humanPos.x + move.x, humanPos.y + move.x];
-            // var demonCell = cells[demonPos.x + move.x, demonPos.y + move.x];
+            // var humanCell = ceils[humanPos + move];
+            // var demonCell = ceils[demonPos + move];
             // if (humanCell.rootEntity.isInteractable)
             // {
             //     for (var i = 0; i < humanCell.additionalEntity.Count; i++)
