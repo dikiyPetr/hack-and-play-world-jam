@@ -9,16 +9,15 @@ using VContainer;
 public class CharacterController : MonoBehaviour
 {
     public Character character { get; private set; }
-    [Inject] private GameManager gameManager;
 
     private void Awake()
     {
-        character = new Character(this, gameManager);
+        character = new Character();
     }
 
     public Vector2Int debugTarget;
     public float moveDuration;
-    private bool isMoved = false;
+    public bool isMoved = false;
 
     public async UniTask MoveTo(Vector3 target)
     {
@@ -50,10 +49,10 @@ public class CharacterControllerEditor : Editor
         DrawDefaultInspector();
 
         CharacterController controller = (CharacterController)target;
-        if (GUILayout.Button("Move To"))
-        {
-            controller.character.MoveTo(controller.debugTarget);
-        }
+        // if (GUILayout.Button("Move To"))
+        // {
+        //     controller.character.MoveTo(controller.debugTarget);
+        // }
     }
 }
 #endif

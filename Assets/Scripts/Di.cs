@@ -11,7 +11,6 @@ public class Di : LifetimeScope
     private GameManager gameManager;
     protected override void Configure(IContainerBuilder builder)
     {
-        builder.RegisterComponentInHierarchy<ActorsManager>();
         builder.RegisterComponent(gameManager);
         instance = Container;
     }
