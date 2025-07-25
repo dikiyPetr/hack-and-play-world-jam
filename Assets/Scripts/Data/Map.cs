@@ -30,12 +30,15 @@ namespace Data
 
         public MoveResult Move(Vector2Int move)
         {
-            var humanCeil = ceils[humanPos.pos + move];
-            var demonCeil = ceils[demonPos.pos + move];
-            var humanEffects = GetEffectForActor(humanCeil, humanPos.pos + move);
-            var demonEffects = GetEffectForActor(demonCeil, demonPos.pos + move);
+            return new MoveResult(MoveByPos(move, humanPos), MoveByPos(move, demonPos));
+        }
 
-            return new MoveResult(humanEffects, demonEffects);
+        public List<Effect> MoveByPos(Vector2Int move, PosHolder posHolder)
+        {
+            var ceil = ceils[posHolder.pos + move];
+            var effects = GetEffectForActor(ceil, posHolder.pos + move);
+
+            return effects;
         }
 
         List<Effect> GetEffectForActor(Ceil ceil, Vector2Int position)
