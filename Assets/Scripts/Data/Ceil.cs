@@ -4,7 +4,7 @@ namespace Data
 {
     public class Ceil
     {
-        private Entity background;
-        private List<Entity> foregroud;
+        public Entity background;
+        public List<Entity> foreground;
     }
 }
