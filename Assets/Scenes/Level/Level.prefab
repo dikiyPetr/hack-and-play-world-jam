@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3371385384359092853}
   - component: {fileID: 5480643472055183525}
-  - component: {fileID: 6794619793957629506}
+  - component: {fileID: 2276247988690098559}
   m_Layer: 5
   m_Name: Hud
   m_TagString: Untagged
@@ -96,11 +96,11 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: d8cbc970712481948bb727493ce5f094, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 4553940d5d31f6445a94f47a5cbbb512, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
---- !u!114 &6794619793957629506
+--- !u!114 &2276247988690098559
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1165017344346087304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 369ae3247aeaa384ca8087da24c89e22, type: 3}
+  m_Script: {fileID: 11500000, guid: 753c814536f7c3346ad09ab682440fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3797597513551332670
@@ -489,7 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7273986741553763425}
   - component: {fileID: 5221766385521204326}
-  - component: {fileID: 8842686986618773085}
+  - component: {fileID: 2043844904744440233}
   m_Layer: 5
   m_Name: NextLevelUI
   m_TagString: Untagged
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
---- !u!114 &8842686986618773085
+--- !u!114 &2043844904744440233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6349227060829902450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 369ae3247aeaa384ca8087da24c89e22, type: 3}
+  m_Script: {fileID: 11500000, guid: cf3c70d08404472c94bcde4f54a7f292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7884235589872332720
