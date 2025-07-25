@@ -1,4 +1,6 @@
-﻿namespace Data
+﻿using System;
+
+namespace Data
 {
     public class Entity
     {
@@ -13,6 +15,7 @@
 
     class InteractiveEntity : Entity
     {
+        public Object value;
         public InteractionType interactionType; // Human, Demon, NPC
     }
 
