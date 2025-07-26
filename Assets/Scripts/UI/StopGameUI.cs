@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace UI
@@ -22,9 +21,7 @@ namespace UI
             _label = _root.Q<Label>("Label");
 
         }
-
-
-
+        
         private void OnEnable()
         {
             _root.visible = false;
@@ -41,12 +38,12 @@ namespace UI
 
         private void OnRestartLvl()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            gameState.StopGame(StopGameType.Restart);
         }
         
         private void OnNextLvl()
         {
-            SceneManager.LoadScene(gameState.levelSetup.nextScene.ToString());
+            gameState.NextLvl();
         }
 
         public void Show(StopGameType type)

@@ -7,6 +7,7 @@ public enum StopGameType
 {
     None,
     Finish,
+    Restart,
     DeathByLava,
     DeathByWater,
     DeathByRats,
@@ -33,9 +34,11 @@ public class GameState : MonoBehaviour
     private int _timeMs = 0;
     public int timeMs => _timeMs;
     public GameManager gameManager;
-    private static int previousSceneId=-1;
+    private static int previousSceneId = -1;
+    private int attemts = 0;
 
     public string timeFormat => Utils.FormatTime(_timeMs);
+
     private void Start()
     {
         _collected = 0;
@@ -75,7 +78,7 @@ public class GameState : MonoBehaviour
             AddTime(ms);
         }
     }
-    
+
     private void AddTime(int timeMs)
     {
         _timeMs += timeMs;
@@ -100,9 +103,19 @@ public class GameState : MonoBehaviour
 
     public void StopGame(StopGameType type)
     {
+        if (type == StopGameType.Restart)
+        {
+            WorldState.Instance.AddAttempt();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            return;
+        }
         isStaredTimer = false;
-        WorldState.Instance.AddAttempt();
         inputRecognizer.DisableKeyboardListener();
         stopGameUI.Show(type);
+    }
+
+    public void NextLvl()
+    {
+        SceneManager.LoadScene(levelSetup.nextScene.ToString());
     }
 }
