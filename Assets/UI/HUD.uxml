@@ -1,5 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement focusable="false" picking-mode="Ignore" style="flex-grow: 1;">
+    <ui:VisualElement focusable="false" picking-mode="Ignore" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start;">
         <ui:Button text="&#10;" name="Restart" style="background-image: url(&quot;project://database/Assets/Sprites/IMG_6861.png?fileID=2800000&amp;guid=f21357861ad567b468ae68eca98d165d&amp;type=3#IMG_6861&quot;); width: 120px; background-size: contain; background-color: rgba(188, 188, 188, 0); height: 50px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
     </ui:VisualElement>
 </ui:UXML>
