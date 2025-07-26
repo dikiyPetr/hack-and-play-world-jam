@@ -25,8 +25,8 @@ public class HudUI : MonoBehaviour
     {
         _cats.text = $"{gameState.collected} | {gameState.levelSetup.collectableCount.ToString()}";
         _attemps.text = WorldState.Instance.attempts.ToString();
-        _timerAll.text = WorldState.Instance.timeFormat;
-        _timerLvl.text = gameState.timeFormat;
+        _timerAll.text = $"ALL: {WorldState.Instance.timeFormat}";
+        _timerLvl.text = $"LVL: {gameState.timeFormat}";
     }
 
     private void OnEnable()

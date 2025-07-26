@@ -240,7 +240,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: d8cbc970712481948bb727493ce5f094, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 4553940d5d31f6445a94f47a5cbbb512, type: 3}
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
@@ -488,8 +488,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3371385384359092853}
   - {fileID: 7273986741553763425}
+  - {fileID: 3371385384359092853}
   m_Father: {fileID: 5408418745902243310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7884235589872332720

@@ -83,6 +83,7 @@ public class GameState : MonoBehaviour
 
     public void Collect()
     {
+        gameManager.audioManager.PlayCat();
         _collected++;
         if (levelSetup.collectableCount == _collected)
         {

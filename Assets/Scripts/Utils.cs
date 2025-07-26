@@ -33,7 +33,7 @@ public static class Utils
         int seconds = (totalMs % 60000) / 1000;
         int ms = totalMs % 1000;
 
-        return $"{minutes:00}:{seconds:00}:{ms:00}";
+        return $"{minutes:00}:{seconds:00}:{(ms / 10):00}";
     }
     
 }
