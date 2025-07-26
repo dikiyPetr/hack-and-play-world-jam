@@ -12,13 +12,17 @@ namespace UI
         private Button _nextLvlButton;
         private Label _label;
 
+        [SerializeField] private GameState gameState;
+
         private void Awake()
         {
             _root = GetComponent<UIDocument>().rootVisualElement;
             _restartButton = _root.Q<Button>("Restart");
             _nextLvlButton = _root.Q<Button>("NextLvl");
             _label = _root.Q<Label>("Label");
+
         }
+
 
 
         private void OnEnable()
@@ -42,7 +46,7 @@ namespace UI
         
         private void OnNextLvl()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(gameState.levelSetup.nextScene.ToString());
         }
 
         public void Show(StopGameType type)

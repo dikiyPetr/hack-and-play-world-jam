@@ -15,7 +15,6 @@ public class AudioManager : MonoBehaviour
     {
         if (!step.isPlaying)
         {
-            Debug.Log("Play");
             step.Play();
         }
     }

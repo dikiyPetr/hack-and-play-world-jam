@@ -182,6 +182,11 @@ MonoBehaviour:
     intValue: 4
     direction: 0
     target: 0
+  - tile: {fileID: 11400000, guid: 9820edca5b315214895ebff02f452fd2, type: 2}
+    type: 7
+    intValue: 0
+    direction: 0
+    target: 0
   - tile: {fileID: 11400000, guid: 0ae14847e9f5ba345b71b38b45321d58, type: 2}
     type: 3
     intValue: 4
@@ -251,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753c814536f7c3346ad09ab682440fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: {fileID: 5017385143235135168}
 --- !u!1 &6081032607864172594
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1122fb8b0a264462839aad5a3d040eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: {fileID: 5017385143235135168}
 --- !u!1 &6610032302305994847
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +546,7 @@ MonoBehaviour:
   _humonPos: {x: 1, y: 1}
   _demonPos: {x: -1, y: 1}
   collectableCount: 2
+  nextScene: 0
 --- !u!1001 &2037353831829363428
 PrefabInstance:
   m_ObjectHideFlags: 0
