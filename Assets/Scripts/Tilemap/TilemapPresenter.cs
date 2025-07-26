@@ -208,6 +208,7 @@ public class TilemapPresenter : MonoBehaviour
     void OnHumanWithDeminMerged()
     {
         gameManager.gameState.StopGame(StopGameType.Merge);
+        gameManager.audioManager.PlayMerge();
     }
 
     private async UniTask ResolveMove(MoveEffect effect, PosHolder posHolder, CharacterController character)
@@ -249,14 +250,17 @@ public class TilemapPresenter : MonoBehaviour
         if (effect.DangerousTargetType == dangerousTargetType.All)
         {
             gameManager.gameState.StopGame(StopGameType.DeathByLava);
+            gameManager.audioManager.PlayLava();
         }
         else if (effect.DangerousTargetType == dangerousTargetType.Human && character.isHuman)
         {
             gameManager.gameState.StopGame(StopGameType.DeathByRats);
+            gameManager.audioManager.PlayRats();
         }
         else if (effect.DangerousTargetType == dangerousTargetType.Demon && !character.isHuman)
         {
             gameManager.gameState.StopGame(StopGameType.DeathByWater);
+            gameManager.audioManager.PlayWater();
         }
     }
 
