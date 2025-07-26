@@ -1,4 +1,5 @@
 using System;
+using UI;
 using UnityEngine;
 
 public enum StopGameType
@@ -13,15 +14,14 @@ public class GameState : MonoBehaviour
 {
     public LevelSetup levelSetup;
     private int collected = 0;
-    public RestartUI restartUI;
+    public StopGameUI stopGameUI;
     public InputRecognizer inputRecognizer;
-
     private void Start()
     {
         collected = 0;
     }
 
-    void Collect()
+    public void Collect()
     {
         collected++;
         if (levelSetup.collectableCount == collected)
@@ -32,11 +32,13 @@ public class GameState : MonoBehaviour
 
     void FinishLevel()
     {
+        stopGameUI.ActivateNextLvl();
+        stopGameUI.Show(StopGameType.Finish);
     }
 
     public void StopGame(StopGameType type)
     {
         inputRecognizer.DisableKeyboardListener();
-        restartUI.Show(type);
+        stopGameUI.Show(type);
     }
 }

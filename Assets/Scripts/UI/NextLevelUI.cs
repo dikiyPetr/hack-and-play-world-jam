@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-class NextLevelUI : MonoBehaviour
+public class NextLevelUI : MonoBehaviour
 {
+    private VisualElement root;
+    
     private void OnEnable()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        root = GetComponent<UIDocument>().rootVisualElement;
         root.visible = false;
         Button playButton = root.Q<Button>("Button");
         if (playButton != null)
@@ -21,5 +23,9 @@ class NextLevelUI : MonoBehaviour
         var root = GetComponent<UIDocument>().rootVisualElement;
         root.visible = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Show()
+    {
+        root.visible = true;
     }
 }

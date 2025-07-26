@@ -563,6 +563,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: key
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 66
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a9dd0778142dc44a445c12fd79ab51
+      internalID: -818915761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -582,6 +604,7 @@ TextureImporter:
       dead_daemon: 5292328984156870438
       floor_0: -283421890363270951
       floor_1: 7269143568889619588
+      key: -818915761
       move_down: -2666231131429958185
       move_left: 3067216179897396013
       move_right: 945632190743513859

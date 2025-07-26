@@ -32,10 +32,8 @@ namespace Data
         public CharacterType characterType;
     }
 
-    class InteractiveEntity : Entity
+    class PickupEntity : Entity
     {
-        public Object value;
-        public InteractionType interactionType;
     }
 
     class DangerousEntity : Entity
@@ -55,7 +53,7 @@ namespace Data
         Push,
         Character,
         Obstacle,
-        Interactive,
+        Pickup,
         Dangerous,
         Teleport,
         MovedObject,

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Data
@@ -7,13 +8,12 @@ namespace Data
     {
         public Vector2Int position { get; }
         public Entity background { get; }
-        public List<Entity> foreground { get; }
+        [CanBeNull] public Entity foreground { get; set; }
 
         public Ceil(Vector2Int position, Entity background)
         {
             this.position = position;
             this.background = background;
-            foreground = new List<Entity>();
         }
     }
 }

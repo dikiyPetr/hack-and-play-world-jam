@@ -32,6 +32,7 @@ public enum TileInfoType
     Move,
     Dead,
     MovedObject,
+    PickupObject,
 }
 
 [Serializable]
@@ -76,10 +77,18 @@ public class TilemapPresenter : MonoBehaviour
         return (Vector2Int)levelSetup.backgroud.WorldToCell(pos);
     }
 
+    public void RemoveTile(Vector2Int fromRaw)
+    {
+        map.ceils[fromRaw].foreground = null;
+        
+        var tilemap = levelSetup.foreground;
+        var from = new Vector3Int(fromRaw.x, fromRaw.y, 0);
+        tilemap.SetTile(from, null);
+    }
     public async UniTask MoveTile(Vector2Int fromRaw, Vector2Int toRaw, float duration = 0.1f)
     {
-        var tempCeil = map.ceils[fromRaw].foreground.FirstOrDefault(e => e.type == EntityType.MovedObject);
-        map.ceils[fromRaw].foreground.Remove(tempCeil);
+        var tempCeil = map.ceils[fromRaw].foreground;
+        map.ceils[fromRaw].foreground = null;
         
         // Получаем тайл и проверяем
         var tilemap = levelSetup.foreground;
@@ -129,7 +138,7 @@ public class TilemapPresenter : MonoBehaviour
         tilemap.SetTile(to, tile);
         Destroy(temp);
         
-        map.ceils[toRaw].foreground.Add(tempCeil);
+        map.ceils[toRaw].foreground = tempCeil;
         
         // TODO Добавить проверки что объект может двигаться
     }
@@ -165,6 +174,9 @@ public class TilemapPresenter : MonoBehaviour
                     continue;
                 case PushMovedObjectEffect movedObjectEffect:
                     await ResolvePushMovedObject(movedObjectEffect, moveTarget, character);
+                    continue;        
+                case PickupEffect pickupEffect:
+                    ResolvePickup(pickupEffect, character);
                     continue;
                 case TeleportEffect teleportEffect:
                     ResolveTeleport(teleportEffect, posHolder, character);
@@ -225,6 +237,12 @@ public class TilemapPresenter : MonoBehaviour
     {
         var position = WorldToCell(character.transform.position);
         await MoveTile(position + moveDirection, position + moveDirection * 2);
+    }    
+    private void ResolvePickup(PickupEffect effect, CharacterController character)
+    {
+        var position = WorldToCell(character.transform.position);
+        RemoveTile(position);
+        gameManager.gameState.Collect();
     }
 
     private void ResolveContactWithDangerous(ContactWithDangerousEffect effect, CharacterController character)
@@ -264,7 +282,7 @@ public class TilemapPresenter : MonoBehaviour
 
                     if (isForeground)
                     {
-                        ceils[position].foreground.Add(entity);
+                        ceils[position].foreground = entity;
                     }
                     else
                     {
@@ -347,6 +365,8 @@ public class TilemapPresenter : MonoBehaviour
                 return new PushEntity(info.direction) { type = EntityType.Push, isInteractable = true };
             case TileInfoType.MovedObject:
                 return new MovedObjectEntity() { type = EntityType.MovedObject, isInteractable = true };
+            case TileInfoType.PickupObject:
+                return new PickupEntity() { type = EntityType.Pickup, isInteractable = true };
             case TileInfoType.Dead:
                 return new DangerousEntity
                 {

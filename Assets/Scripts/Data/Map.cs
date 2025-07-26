@@ -47,21 +47,19 @@ namespace Data
             if (ceil.background.isInteractable)
             {
                 bool canMove = true;
-                for (var i = 0; i < ceil.foreground.Count; i++)
-                {
-                    var additionalEntry = ceil.foreground[i];
-                    if (additionalEntry.isInteractable)
-                    {
-                        var foregroundEffects = GetEffect(additionalEntry, position);
-                        foreach (var effect in foregroundEffects)
-                        {
-                            if (effect.breakMove)
-                            {
-                                canMove = false;
-                            }
 
-                            effectList.Add(effect);
+                var additionalEntry = ceil.foreground;
+                if (additionalEntry != null && additionalEntry.isInteractable)
+                {
+                    var foregroundEffects = GetEffect(additionalEntry, position);
+                    foreach (var effect in foregroundEffects)
+                    {
+                        if (effect.breakMove)
+                        {
+                            canMove = false;
                         }
+
+                        effectList.Add(effect);
                     }
                 }
 
@@ -117,12 +115,19 @@ namespace Data
                         {
                             new MoveEffect(position),
                             new TeleportEffect() { to = ((TeleportEntity)entity).to.Value }
-                        };    
+                        };
                     case EntityType.Dangerous:
                         return new Effect[]
                         {
                             new MoveEffect(position),
-                            new ContactWithDangerousEffect { DangerousTargetType = ((DangerousEntity)entity).dangerousTargetType }
+                            new ContactWithDangerousEffect
+                                { DangerousTargetType = ((DangerousEntity)entity).dangerousTargetType }
+                        };
+                    case EntityType.Pickup:
+                        return new Effect[]
+                        {
+                            new MoveEffect(position),
+                            new PickupEffect() { }
                         };
                     case EntityType.MovedObject:
                         return new Effect[]

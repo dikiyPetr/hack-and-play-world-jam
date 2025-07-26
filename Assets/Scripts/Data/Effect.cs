@@ -32,11 +32,8 @@ namespace Data
 
     class PickupEffect : Effect
     {
-        public Object value;
-
-        public PickupEffect(Object value) : base(EffectType.PickupEffect)
+        public PickupEffect() : base(EffectType.PickupEffect)
         {
-            this.value = value;
         }
     }
 
