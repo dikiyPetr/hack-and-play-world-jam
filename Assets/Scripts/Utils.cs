@@ -26,4 +26,14 @@ public static class Utils
 
         return dangerousTargetType.All;
     }
+    public static string FormatTime(float milliseconds)
+    {
+        int totalMs = Mathf.FloorToInt(milliseconds);
+        int minutes = totalMs / 60000;
+        int seconds = (totalMs % 60000) / 1000;
+        int ms = totalMs % 1000;
+
+        return $"{minutes:00}:{seconds:00}:{ms:00}";
+    }
+    
 }

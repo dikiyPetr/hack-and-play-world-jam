@@ -30,9 +30,12 @@ public class GameState : MonoBehaviour
     public InputRecognizer inputRecognizer;
     private bool isStaredTimer = false;
     public int collected => _collected;
+    private int _timeMs = 0;
+    public int timeMs => _timeMs;
     public GameManager gameManager;
     private static int previousSceneId=-1;
 
+    public string timeFormat => Utils.FormatTime(_timeMs);
     private void Start()
     {
         _collected = 0;
@@ -67,10 +70,15 @@ public class GameState : MonoBehaviour
     {
         if (isStaredTimer)
         {
-            WorldState.Instance.AddTime((int)(Time.deltaTime * 1000));
+            var ms = (int)(Time.deltaTime * 1000);
+            WorldState.Instance.AddTime(ms);
+            AddTime(ms);
         }
-
-        _collected = 0;
+    }
+    
+    private void AddTime(int timeMs)
+    {
+        _timeMs += timeMs;
     }
 
     public void Collect()
