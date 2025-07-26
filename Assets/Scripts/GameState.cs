@@ -7,7 +7,9 @@ public enum StopGameType
 {
     None,
     Finish,
-    Death,
+    DeathByLava,
+    DeathByWater,
+    DeathByRats,
     Merge,
     Recursion,
 }
@@ -28,19 +30,55 @@ public class GameState : MonoBehaviour
     public InputRecognizer inputRecognizer;
     private bool isStaredTimer = false;
     public int collected => _collected;
+    private int _timeMs = 0;
+    public int timeMs => _timeMs;
+    public GameManager gameManager;
+    private static int previousSceneId=-1;
 
+    public string timeFormat => Utils.FormatTime(_timeMs);
     private void Start()
     {
         _collected = 0;
         isStaredTimer = true;
+
+        if (SceneManager.GetActiveScene().buildIndex == previousSceneId)
+        {
+            gameManager.demonController.HideSay();
+            return;
+        }
+
+        switch (SceneManager.GetActiveScene().buildIndex)
+        {
+            case 0:
+                gameManager.demonController.Say(StringAssets.MessageLevel1);
+                break;
+            case 1:
+                gameManager.demonController.Say(StringAssets.MessageLevel2);
+                break;
+            case 2:
+                gameManager.demonController.Say(StringAssets.MessageLevel3);
+                break;
+            case 3:
+                gameManager.demonController.Say(StringAssets.MessageLevel4);
+                break;
+        }
+
+        previousSceneId = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void Update()
     {
         if (isStaredTimer)
         {
-            WorldState.Instance.AddTime((int) (Time.deltaTime* 1000));
+            var ms = (int)(Time.deltaTime * 1000);
+            WorldState.Instance.AddTime(ms);
+            AddTime(ms);
         }
+    }
+    
+    private void AddTime(int timeMs)
+    {
+        _timeMs += timeMs;
     }
 
     public void Collect()

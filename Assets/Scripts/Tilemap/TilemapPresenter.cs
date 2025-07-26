@@ -248,15 +248,15 @@ public class TilemapPresenter : MonoBehaviour
     {
         if (effect.DangerousTargetType == dangerousTargetType.All)
         {
-            gameManager.gameState.StopGame(StopGameType.Death);
+            gameManager.gameState.StopGame(StopGameType.DeathByLava);
         }
         else if (effect.DangerousTargetType == dangerousTargetType.Human && character.isHuman)
         {
-            gameManager.gameState.StopGame(StopGameType.Death);
+            gameManager.gameState.StopGame(StopGameType.DeathByRats);
         }
         else if (effect.DangerousTargetType == dangerousTargetType.Demon && !character.isHuman)
         {
-            gameManager.gameState.StopGame(StopGameType.Death);
+            gameManager.gameState.StopGame(StopGameType.DeathByWater);
         }
     }
 

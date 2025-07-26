@@ -9,21 +9,24 @@ public class HudUI : MonoBehaviour
     private Label _attemps;
     [SerializeField] private GameState gameState;
     private VisualElement _root;
-    private Label _timer;
+    private Label _timerAll;
+    private Label _timerLvl;
 
     private void Awake()
     {
         _root = GetComponent<UIDocument>().rootVisualElement;
         _cats = _root.Q<Label>("cats");
         _attemps = _root.Q<Label>("attemps");
-        _timer = _root.Q<Label>("timer");
+        _timerAll = _root.Q<Label>("timer-all");
+        _timerLvl = _root.Q<Label>("timer-lvl");
     }
 
     private void Update()
     {
         _cats.text = $"{gameState.collected} | {gameState.levelSetup.collectableCount.ToString()}";
         _attemps.text = WorldState.Instance.attempts.ToString();
-        _timer.text = WorldState.Instance.timeFormat;
+        _timerAll.text = WorldState.Instance.timeFormat;
+        _timerLvl.text = gameState.timeFormat;
     }
 
     private void OnEnable()
