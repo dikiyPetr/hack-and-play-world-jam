@@ -96,7 +96,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1453496396956784420}
-  - component: {fileID: 5275774943591168570}
   - component: {fileID: 2959820402160653448}
   m_Layer: 0
   m_Name: Demon
@@ -119,15 +118,67 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9087642973863545236}
+  - {fileID: 6495802392932216964}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5275774943591168570
-SpriteRenderer:
+--- !u!114 &2959820402160653448
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3637704548556703680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699f20cb77958694ca776d2c8e8256a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugTarget: {x: 11, y: 0}
+  moveDuration: 0.1
+  isMoved: 0
+  isHuman: 0
+  textObject: {fileID: 5460151764711006933}
+  textPanel: {fileID: 8652815191652156569}
+--- !u!1 &6403170470574924560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6495802392932216964}
+  - component: {fileID: 2365988697508746443}
+  - component: {fileID: 435912850290445681}
+  m_Layer: 0
+  m_Name: Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6495802392932216964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403170470574924560}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 2.3, y: 1.7, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1453496396956784420}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &2365988697508746443
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403170470574924560}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -165,7 +216,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 8
-  m_Sprite: {fileID: 33490002, guid: d33598d781682e049a53a0a13104ef29, type: 3}
+  m_Sprite: {fileID: 8859059008995292551, guid: 6a5cf5844f15f354db8ed4d6867ecb67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -176,24 +227,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2959820402160653448
-MonoBehaviour:
+--- !u!95 &435912850290445681
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3637704548556703680}
+  m_GameObject: {fileID: 6403170470574924560}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 699f20cb77958694ca776d2c8e8256a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugTarget: {x: 11, y: 0}
-  moveDuration: 0.1
-  isMoved: 0
-  isHuman: 0
-  textObject: {fileID: 5460151764711006933}
-  textPanel: {fileID: 8652815191652156569}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32e3067afc102104f818fd209d706cef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7372649728836698444
 GameObject:
   m_ObjectHideFlags: 0
