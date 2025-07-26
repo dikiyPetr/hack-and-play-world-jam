@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-4326752770377604998
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 80 80_{-4326752770377604998}
+  m_AudioClip: {fileID: 8300000, guid: 247f1260e9b721b4f961ad51f743c53c, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-2653784270806179987
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 106_{-2653784270806179987}
+  m_AudioClip: {fileID: 8300000, guid: 75c837a1620e3e14ab25a26624feb8b7, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-610093635538738558
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 90_{-610093635538738558}
+  m_AudioClip: {fileID: 8300000, guid: 1f4e8a58006ef1247adeff78cf9cfc20, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2621941448987696375
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 70 70_{2621941448987696375}
+  m_AudioClip: {fileID: 8300000, guid: 290aa0fb859b1d448b37ba80f063ee42, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Audio Random Container
+  m_Volume: -16.4
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 2621941448987696375}
+  - {fileID: -4326752770377604998}
+  - {fileID: 6763614592357009485}
+  - {fileID: -610093635538738558}
+  - {fileID: -2653784270806179987}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 1
+  m_TriggerMode: 1
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &6763614592357009485
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 85_{6763614592357009485}
+  m_AudioClip: {fileID: 8300000, guid: 4afa647abe3a80442a37298846c32bc5, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
