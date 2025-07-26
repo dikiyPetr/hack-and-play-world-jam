@@ -124,6 +124,12 @@ namespace Data
                             new MoveEffect(position),
                             new ContactWithDangerousEffect { DangerousTargetType = ((DangerousEntity)entity).dangerousTargetType }
                         };
+                    case EntityType.MovedObject:
+                        return new Effect[]
+                        {
+                            new PushMovedObjectEffect(),
+                            new MoveEffect(position),
+                        };
                     case EntityType.Character:
                         switch (((CharacterEntity)entity).characterType)
                         {

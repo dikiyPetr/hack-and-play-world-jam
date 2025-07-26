@@ -30,7 +30,8 @@ public enum TileInfoType
     TeleportFrom,
     TeleportTo,
     Move,
-    Dead
+    Dead,
+    MovedObject,
 }
 
 [Serializable]
@@ -75,7 +76,64 @@ public class TilemapPresenter : MonoBehaviour
         return (Vector2Int)levelSetup.backgroud.WorldToCell(pos);
     }
 
-    public async UniTask Move(Vector2 move)
+    public async UniTask MoveTile(Vector2Int fromRaw, Vector2Int toRaw, float duration = 0.1f)
+    {
+        var tempCeil = map.ceils[fromRaw].foreground.FirstOrDefault(e => e.type == EntityType.MovedObject);
+        map.ceils[fromRaw].foreground.Remove(tempCeil);
+        
+        // Получаем тайл и проверяем
+        var tilemap = levelSetup.foreground;
+        var from = new Vector3Int(fromRaw.x, fromRaw.y, 0);
+        var to = new Vector3Int(toRaw.x, toRaw.y, 0);
+        TileBase tile = tilemap.GetTile(from);
+        if (tile == null)
+        {
+            Debug.LogWarning("Нет тайла в позиции " + from);
+            return;
+        }
+
+        // Получаем спрайт тайла
+        Tile tileAsset = tile as Tile;
+        if (tileAsset == null)
+        {
+            Debug.LogWarning("Тайл не Tile, а другой тип. Используй Tile со спрайтом.");
+            return;
+        }
+
+        // Создаём временный объект
+        GameObject temp = new GameObject("MovingTile");
+        SpriteRenderer sr = temp.AddComponent<SpriteRenderer>();
+        sr.sprite = tileAsset.sprite;
+        sr.sortingOrder = 10;
+
+        Vector3 worldFrom = tilemap.CellToWorld(from) + tilemap.tileAnchor;
+        Vector3 worldTo = tilemap.CellToWorld(to) + tilemap.tileAnchor;
+        temp.transform.position = worldFrom;
+
+        // Удаляем тайл из начальной позиции
+        tilemap.SetTile(from, null);
+
+        // Плавное движение
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            temp.transform.position = Vector3.Lerp(worldFrom, worldTo, elapsed / duration);
+            elapsed += Time.deltaTime;
+            await UniTask.Yield();
+        }
+
+        // Завершаем движение
+        temp.transform.position = worldTo;
+
+        // Ставим тайл на новое место и удаляем временный объект
+        tilemap.SetTile(to, tile);
+        Destroy(temp);
+        
+        map.ceils[toRaw].foreground.Add(tempCeil);
+        
+        // TODO Добавить проверки что объект может двигаться
+    }
+    public async UniTask MoveCharacters(Vector2 move)
     {
         if (gameManager.humanController.isMoved || gameManager.demonController.isMoved)
         {
@@ -85,13 +143,13 @@ public class TilemapPresenter : MonoBehaviour
         var intMove = new Vector2Int((int)move.x, (int)move.y);
         var result = map.Move(intMove);
         await (
-            ResolveEffect(result.humanEffect, map.humanPos, gameManager.humanController),
-            ResolveEffect(result.demonEffect, map.demonPos, gameManager.demonController)
+            ResolveEffect(result.humanEffect, map.humanPos, gameManager.humanController, intMove),
+            ResolveEffect(result.demonEffect, map.demonPos, gameManager.demonController, intMove)
         );
     }
 
     private async UniTask ResolveEffect(List<Effect> resultHumanEffect, PosHolder posHolder,
-        CharacterController character, int recursionCount = 0)
+        CharacterController character, Vector2Int moveTarget, int recursionCount = 0)
     {
         if (recursionCount > 15)
         {
@@ -105,6 +163,9 @@ public class TilemapPresenter : MonoBehaviour
                 case ContactWithDangerousEffect dangerousEffect:
                     ResolveContactWithDangerous(dangerousEffect, character);
                     continue;
+                case PushMovedObjectEffect movedObjectEffect:
+                    await ResolvePushMovedObject(movedObjectEffect, moveTarget, character);
+                    continue;
                 case TeleportEffect teleportEffect:
                     ResolveTeleport(teleportEffect, posHolder, character);
                     continue;
@@ -113,7 +174,7 @@ public class TilemapPresenter : MonoBehaviour
                     await ResolveMove(pushEffect, posHolder, character);
                     // рекурсия
                     var newEffects = map.MoveByPos(Vector2Int.zero, posHolder);
-                    await ResolveEffect(newEffects, posHolder, character, recursionCount + 1);
+                    await ResolveEffect(newEffects, posHolder, character, moveTarget, recursionCount + 1);
                     continue;
                 }
                 case MoveEffect moveEffect:
@@ -157,6 +218,13 @@ public class TilemapPresenter : MonoBehaviour
             OnMove();
             character.TeleportTo(position);
         }
+    }
+
+    private async UniTask ResolvePushMovedObject(PushMovedObjectEffect effect, Vector2Int moveDirection,
+        CharacterController character)
+    {
+        var position = WorldToCell(character.transform.position);
+        await MoveTile(position + moveDirection, position + moveDirection * 2);
     }
 
     private void ResolveContactWithDangerous(ContactWithDangerousEffect effect, CharacterController character)
@@ -277,6 +345,8 @@ public class TilemapPresenter : MonoBehaviour
 
             case TileInfoType.Move:
                 return new PushEntity(info.direction) { type = EntityType.Push, isInteractable = true };
+            case TileInfoType.MovedObject:
+                return new MovedObjectEntity() { type = EntityType.MovedObject, isInteractable = true };
             case TileInfoType.Dead:
                 return new DangerousEntity
                 {

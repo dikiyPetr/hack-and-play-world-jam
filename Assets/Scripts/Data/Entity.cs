@@ -17,7 +17,10 @@ namespace Data
             direction = Utils.DirectionToVector(directionEnum);
         }
         
-    }     
+    }   
+    class MovedObjectEntity : Entity
+    {
+    } 
     class TeleportEntity : Entity
     {
         public Vector2Int? from;
@@ -55,6 +58,7 @@ namespace Data
         Interactive,
         Dangerous,
         Teleport,
+        MovedObject,
     }
 
     public enum dangerousTargetType

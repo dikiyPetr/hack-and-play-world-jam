@@ -37,7 +37,7 @@ public class InputRecognizer : MonoBehaviour
     {
         if (moveInput != Vector2.zero)
         {
-            gameManager.tilemapPresenter.Move(moveInput).Forget();
+            gameManager.tilemapPresenter.MoveCharacters(moveInput).Forget();
         }
     }
 

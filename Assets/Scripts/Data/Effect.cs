@@ -68,6 +68,12 @@ namespace Data
         public TeleportEffect() : base(EffectType.Teleport)
         {
         }
+    }    
+    class PushMovedObjectEffect : Effect
+    {
+        public PushMovedObjectEffect() : base(EffectType.PushMovedObject)
+        {
+        }
     }
 
     public enum EffectType
@@ -79,5 +85,6 @@ namespace Data
         ContactWithDemon,
         ContactWithHuman,
         ContactWithDangerous,
+        PushMovedObject,
     }
 }
