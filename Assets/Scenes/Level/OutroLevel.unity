@@ -176,7 +176,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The ritual was supposed to go perfectly...
+  m_text: "The mistake has been undone.\r\nNine feline souls, offered in sacrifice,
+    have become the new seal in your place.\r\nYou are now free\u2026 but they are
+    bound to each other forever."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b69c5ce39a78a0d458cfec2b139c82fe, type: 2}
   m_sharedMaterial: {fileID: -6477085301648669451, guid: b69c5ce39a78a0d458cfec2b139c82fe, type: 2}
@@ -326,13 +328,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1207469586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9905f7145a7a89418253f9ef33657d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ea8f08aa8834ac495052bf8cd7614ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 581537054}
-  delayBeforeFade: 6
+  firstMessage: "The mistake has been undone.\nNine feline souls, offered in sacrifice,
+    have become the new seal in your place.\nYou are now free\u2026 but they are
+    bound to each other forever"
+  secondMessage: Thank you for playing
+  delayBeforeFadeIn: 1
   fadeDuration: 2
-  nextScene: 1
+  delayBetweenMessages: 10
 --- !u!1 &1281699379
 GameObject:
   m_ObjectHideFlags: 0

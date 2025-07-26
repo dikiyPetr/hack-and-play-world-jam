@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class TextFadeOut : MonoBehaviour
+public class IntroScript : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public float delayBeforeFade = 1f;

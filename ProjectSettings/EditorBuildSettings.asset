@@ -15,11 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Level/TeleportTutorialLevel.unity
     guid: 522cc7156b38ba84cb55c9d9fd882c04
   - enabled: 1
+    path: Assets/Scenes/Level/RatsLevel.unity
+    guid: 940c6058569a95d418eae0c9a2e0b407
+  - enabled: 1
     path: Assets/Scenes/Level/TeleporAndMergeLevel.unity
     guid: 9ed86de53b25f27439345cc02a0cacc4
   - enabled: 1
-    path: Assets/Scenes/Level/RatsLevel.unity
-    guid: 940c6058569a95d418eae0c9a2e0b407
+    path: Assets/Scenes/Level/OutroLevel.unity
+    guid: 894d9a7fe451cad4f840d478c5133a67
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

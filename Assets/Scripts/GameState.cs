@@ -7,6 +7,7 @@ public enum StopGameType
 {
     None,
     Finish,
+    FinishGame,
     Restart,
     DeathByLava,
     DeathByWater,
@@ -54,16 +55,16 @@ public class GameState : MonoBehaviour
         switch (SceneManager.GetActiveScene().buildIndex)
         {
             case 1:
-                gameManager.demonController.Say(StringAssets.MessageLevel1);
+                gameManager.demonController.Say(StringAssets.MessageLevel1, 10000);
                 break;
             case 2:
-                gameManager.demonController.Say(StringAssets.MessageLevel2);
+                gameManager.demonController.Say(StringAssets.MessageLevel2, 5000);
                 break;
             case 3:
-                gameManager.demonController.Say(StringAssets.MessageLevel3);
+                gameManager.demonController.Say(StringAssets.MessageLevel3, 5000);
                 break;
             case 4:
-                gameManager.demonController.Say(StringAssets.MessageLevel4);
+                gameManager.demonController.Say(StringAssets.MessageLevel4, 5000);
                 break;
         }
 
@@ -99,7 +100,14 @@ public class GameState : MonoBehaviour
     void FinishLevel()
     {
         stopGameUI.ActivateNextLvl();
-        stopGameUI.Show(StopGameType.Finish);
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            stopGameUI.Show(StopGameType.FinishGame);
+        }
+        else
+        {
+            stopGameUI.Show(StopGameType.Finish);
+        }
     }
 
     public void StopGame(StopGameType type)

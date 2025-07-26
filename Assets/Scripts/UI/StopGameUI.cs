@@ -61,6 +61,9 @@ namespace UI
                 case StopGameType.Finish:
                     _label.text = StringAssets.FinishLevelLabel;
                     break;
+                case StopGameType.FinishGame:
+                    _label.text = StringAssets.FinishGameLabel;
+                    break;
                 case StopGameType.DeathByLava:
                     _label.text = StringAssets.DeathByLavaLabel;
                     break;

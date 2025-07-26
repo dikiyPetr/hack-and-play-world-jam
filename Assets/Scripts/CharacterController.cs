@@ -39,11 +39,11 @@ public class CharacterController : MonoBehaviour
         transform.position = target;
     }
 
-    public async void Say(String text)
+    public async void Say(String text,int delay)
     {
         textObject.SetText(text);
         textPanel.SetActive(true);
-        await UniTask.Delay(6000);
+        await UniTask.Delay(delay);
         textPanel.SetActive(false);
     }
 
