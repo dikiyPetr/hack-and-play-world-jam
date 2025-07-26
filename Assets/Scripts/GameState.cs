@@ -31,20 +31,13 @@ public class GameState : MonoBehaviour
     private bool isStaredTimer = false;
     public int collected => _collected;
     public GameManager gameManager;
-    private static int previousSceneId;
+    private static int previousSceneId=-1;
+
     private void Start()
     {
         _collected = 0;
         isStaredTimer = true;
-    }
 
-    private void Update()
-    {
-        if (isStaredTimer)
-        {
-            WorldState.Instance.AddTime((int) (Time.deltaTime* 1000));
-        }
-        collected = 0;
         if (SceneManager.GetActiveScene().buildIndex == previousSceneId)
         {
             gameManager.demonController.HideSay();
@@ -53,21 +46,31 @@ public class GameState : MonoBehaviour
 
         switch (SceneManager.GetActiveScene().buildIndex)
         {
-            case 1:
+            case 0:
                 gameManager.demonController.Say(StringAssets.MessageLevel1);
                 break;
-            case 2:
+            case 1:
                 gameManager.demonController.Say(StringAssets.MessageLevel2);
                 break;
-            case 3:
+            case 2:
                 gameManager.demonController.Say(StringAssets.MessageLevel3);
                 break;
-            case 4:
+            case 3:
                 gameManager.demonController.Say(StringAssets.MessageLevel4);
                 break;
         }
 
         previousSceneId = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    private void Update()
+    {
+        if (isStaredTimer)
+        {
+            WorldState.Instance.AddTime((int)(Time.deltaTime * 1000));
+        }
+
+        _collected = 0;
     }
 
     public void Collect()
