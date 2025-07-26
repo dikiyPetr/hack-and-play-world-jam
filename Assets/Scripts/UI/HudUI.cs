@@ -8,7 +8,7 @@ public class HudUI : MonoBehaviour
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
-        Button playButton = root.Q<Button>("RestartButton");
+        Button playButton = root.Q<Button>("Restart");
         if (playButton != null)
         {
             playButton.clicked += OnRestartClicked;
