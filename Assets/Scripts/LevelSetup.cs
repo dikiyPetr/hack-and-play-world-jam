@@ -7,5 +7,5 @@ public class LevelSetup : MonoBehaviour
     [SerializeField] public Vector2Int _humonPos;
     [SerializeField] public Vector2Int _demonPos;
     public int collectableCount;
-    
+    public SceneName nextScene;
 }

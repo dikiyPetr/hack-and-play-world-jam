@@ -68,6 +68,7 @@ MonoBehaviour:
   levelSetup: {fileID: 7261491415618052679}
   stopGameUI: {fileID: 2871495806152398075}
   inputRecognizer: {fileID: 7644072689016509218}
+  nextScene: 0
 --- !u!114 &7644072689016509218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +180,11 @@ MonoBehaviour:
   - tile: {fileID: 11400000, guid: 5060d928e2bf1414caeaee163d6f7363, type: 2}
     type: 2
     intValue: 4
+    direction: 0
+    target: 0
+  - tile: {fileID: 11400000, guid: 9820edca5b315214895ebff02f452fd2, type: 2}
+    type: 7
+    intValue: 0
     direction: 0
     target: 0
   - tile: {fileID: 11400000, guid: 0ae14847e9f5ba345b71b38b45321d58, type: 2}
@@ -451,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1122fb8b0a264462839aad5a3d040eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: {fileID: 5017385143235135168}
 --- !u!1 &6610032302305994847
 GameObject:
   m_ObjectHideFlags: 0

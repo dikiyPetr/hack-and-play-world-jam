@@ -1,6 +1,7 @@
 using System;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum StopGameType
 {
@@ -10,6 +11,15 @@ public enum StopGameType
     Merge,
     Recursion,
 }
+
+public enum SceneName
+{
+    TutorialLevel,
+    TeleportTutorialLevel,
+    TeleporAndMergeLevel,
+    RatsLevel,
+}
+
 public class GameState : MonoBehaviour
 {
     public LevelSetup levelSetup;
