@@ -17,6 +17,7 @@ public enum StopGameType
 
 public enum SceneName
 {
+    IntroLevel,
     TutorialLevel,
     TeleportTutorialLevel,
     TeleporAndMergeLevel,
