@@ -297,6 +297,10 @@ PrefabInstance:
       propertyPath: _humonPos.y
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 7261491415618052679, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
+      propertyPath: collectableCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7366401489189335341, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
       propertyPath: m_SortingOrder
       value: 2
