@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level/TutorialLevel.unity
+    path: Assets/Scenes/Level/TutorialLevel_old.unity
     guid: 7db9f033f5c75e64491b873861e32c9d
   - enabled: 1
     path: Assets/Scenes/Level/TeleportTutorialLevel.unity
