@@ -38,7 +38,8 @@ namespace UI
         private void OnRestartLvl()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }     
+        }
+        
         private void OnNextLvl()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -47,32 +48,33 @@ namespace UI
         public void Show(StopGameType type)
         {
             _root.visible = true;
-
-            if (type == StopGameType.Recursion)
+            switch (type)
             {
-                _label.text = "Закатался на карусели";
-                return;
-            }
-
-            if (type == StopGameType.Merge)
-            {
-                _label.text = "СЛИЯНИЕЕЕЕ!";
-                return;
-            
-            }  
-            if (type == StopGameType.Death)
-            {
-                _label.text = "ЭТО СМЕРТЬ!";
-                return;
-            
-            }  
-            if (type == StopGameType.Finish)
-            {
-                _label.text = "ПОБЕДА!";
-                return;
-            
+                case StopGameType.None:
+                    break;
+                case StopGameType.Finish:
+                    _label.text = StringAssets.FinishLevelLabel;
+                    break;
+                case StopGameType.DeathByLava:
+                    _label.text = StringAssets.DeathByLavaLabel;
+                    break;
+                case StopGameType.DeathByWater:
+                    _label.text = StringAssets.DeathByWaterLabel;
+                    break;
+                case StopGameType.DeathByRats:
+                    _label.text = StringAssets.DeathByRatsLabel;
+                    break;
+                case StopGameType.Merge:
+                    _label.text = StringAssets.DeathByMergeLabel;
+                    break;
+                case StopGameType.Recursion:
+                    _label.text = "AAAAA. МЫ ДОБАВЛЯЕМ КОД, КОТОРЫЙ ПОТОМ НЕ ИСПОЛЬЗУЕМ";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
         }
+
         public void ActivateNextLvl()
         {
             _nextLvlButton.SetEnabled(true);

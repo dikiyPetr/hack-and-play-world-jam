@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   humanController: {fileID: 57459205923188662}
   demonController: {fileID: 440933310837612447}
-  tilemapPresenter: {fileID: 0}
+  tilemapPresenter: {fileID: 2883274701793159762}
   gameState: {fileID: 5017385143235135168}
   audioManager: {fileID: 8518696687145057077}
 --- !u!114 &5017385143235135168
@@ -68,6 +68,7 @@ MonoBehaviour:
   levelSetup: {fileID: 7261491415618052679}
   stopGameUI: {fileID: 2871495806152398075}
   inputRecognizer: {fileID: 7644072689016509218}
+  gameManager: {fileID: 1557808812418655585}
 --- !u!114 &7644072689016509218
 MonoBehaviour:
   m_ObjectHideFlags: 0

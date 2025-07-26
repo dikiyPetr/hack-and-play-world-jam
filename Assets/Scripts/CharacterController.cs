@@ -1,4 +1,6 @@
+using System;
 using Cysharp.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEditor;
 
@@ -8,6 +10,9 @@ public class CharacterController : MonoBehaviour
     public float moveDuration;
     public bool isMoved = false;
     public bool isHuman;
+    public TMP_Text textObject;
+    public GameObject textPanel;
+
 
     public async UniTask MoveTo(Vector3 target)
     {
@@ -27,10 +32,24 @@ public class CharacterController : MonoBehaviour
 
         transform.position = target;
         isMoved = false;
-    }    
+    }
+
     public void TeleportTo(Vector3 target)
     {
         transform.position = target;
+    }
+
+    public async void Say(String text)
+    {
+        textObject.SetText(text);
+        textPanel.SetActive(true);
+        await UniTask.Delay(6000);
+        textPanel.SetActive(false);
+    }
+
+    public void HideSay()
+    {
+        textPanel.SetActive(false);
     }
 }
 
