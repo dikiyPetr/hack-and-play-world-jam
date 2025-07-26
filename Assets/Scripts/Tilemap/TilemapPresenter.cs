@@ -184,6 +184,7 @@ public class TilemapPresenter : MonoBehaviour
                     continue;
                 case PushEffect pushEffect:
                 {
+                    gameManager.audioManager.PlaySlide();
                     await ResolveMove(pushEffect, posHolder, character);
                     // рекурсия
                     var newEffects = map.MoveByPos(Vector2Int.zero, posHolder);

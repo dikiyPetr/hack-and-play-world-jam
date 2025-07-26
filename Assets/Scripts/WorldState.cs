@@ -22,6 +22,7 @@ public class WorldState : MonoBehaviour
 
     private int _attempts = 0;
     private int _timeMs = 0;
+    public int attemptsInLevel;
 
     public int attempts => _attempts;
     public int timeMs => _timeMs;

@@ -40,6 +40,6 @@ public class HudUI : MonoBehaviour
 
     private void OnRestartClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameState.StopGame(StopGameType.Restart);
     }
 }
