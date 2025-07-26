@@ -10,6 +10,7 @@ namespace UI
         private Button _restartButton;
         private Button _nextLvlButton;
         private Label _label;
+        private Button _casualSkipButton;
 
         [SerializeField] private GameState gameState;
 
@@ -18,6 +19,8 @@ namespace UI
             _root = GetComponent<UIDocument>().rootVisualElement;
             _restartButton = _root.Q<Button>("Restart");
             _nextLvlButton = _root.Q<Button>("NextLvl");
+            _nextLvlButton = _root.Q<Button>("NextLvl");
+            _casualSkipButton = _root.Q<Button>("casualSkip");
             _label = _root.Q<Label>("Label");
 
         }
@@ -27,6 +30,7 @@ namespace UI
             _root.visible = false;
             _restartButton.clicked += OnRestartLvl;
             _nextLvlButton.clicked += OnNextLvl;
+            _casualSkipButton.clicked += OnNextLvl;
         }
 
         private void OnDisable()
@@ -34,6 +38,7 @@ namespace UI
             _root.visible = false;
             _restartButton.clicked -= OnRestartLvl;
             _nextLvlButton.clicked -= OnNextLvl;
+            _casualSkipButton.clicked += OnNextLvl;
         }
 
         private void OnRestartLvl()
@@ -73,6 +78,11 @@ namespace UI
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
+
+            if (WorldState.Instance.attemptsInLevel >= 3)
+            {
+                _casualSkipButton.style.display = DisplayStyle.Flex;
             }
         }
 

@@ -35,7 +35,6 @@ public class GameState : MonoBehaviour
     public int timeMs => _timeMs;
     public GameManager gameManager;
     private static int previousSceneId = -1;
-    private int attemts = 0;
 
     public string timeFormat => Utils.FormatTime(_timeMs);
 
@@ -105,6 +104,7 @@ public class GameState : MonoBehaviour
     {
         if (type == StopGameType.Restart)
         {
+            WorldState.Instance.attemptsInLevel++;
             WorldState.Instance.AddAttempt();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             return;
@@ -113,9 +113,10 @@ public class GameState : MonoBehaviour
         inputRecognizer.DisableKeyboardListener();
         stopGameUI.Show(type);
     }
-
+    
     public void NextLvl()
     {
         SceneManager.LoadScene(levelSetup.nextScene.ToString());
+        WorldState.Instance.attemptsInLevel = 0;
     }
 }
