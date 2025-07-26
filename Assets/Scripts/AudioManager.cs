@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource rats;
     [SerializeField] private AudioSource water;
     [SerializeField] private AudioSource lava;
-
+    [SerializeField] private AudioSource slide;
     void Start()
     {
         ambient.Play();
@@ -59,5 +59,9 @@ public class AudioManager : MonoBehaviour
     public void PlayCat()
     {
         cat.Play();
+    }
+    public void PlaySlide()
+    {
+        slide.Play();
     }
 }
