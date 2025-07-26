@@ -33,18 +33,10 @@ public class InputRecognizer : MonoBehaviour
         inputActions.Disable();
     }
 
-    void Update()
-    {
-        if (moveInput != Vector2.zero)
-        {
-            gameManager.tilemapPresenter.MoveCharacters(moveInput).Forget();
-        }
-    }
-
     private void OnMovePerformed(InputAction.CallbackContext ctx)
     {
-        
         moveInput = ctx.ReadValue<Vector2>();
+        gameManager.tilemapPresenter.MoveCharacters(moveInput).Forget();
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext ctx)
@@ -56,6 +48,7 @@ public class InputRecognizer : MonoBehaviour
     {
         inputActions.Enable();
     }
+
     public void DisableKeyboardListener()
     {
         inputActions.Disable();

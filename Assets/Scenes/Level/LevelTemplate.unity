@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 808583922}
   - component: {fileID: 808583921}
-  - component: {fileID: 808583920}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -262,7 +261,7 @@ PrefabInstance:
     - target: {fileID: 1557808812418655585, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
       propertyPath: tilemapPresenter
       value: 
-      objectReference: {fileID: 808583920}
+      objectReference: {fileID: 1299183581}
     - target: {fileID: 5408418745902243310, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.41976
@@ -322,24 +321,13 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
 --- !u!114 &1299183581 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7261491415618052679, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2883274701793159762, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
   m_PrefabInstance: {fileID: 1299183580}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b41f8da67bf8004bb3f5822bed78cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1299183582 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1557808812418655585, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
-  m_PrefabInstance: {fileID: 1299183580}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a4e8d6621547d78cbb1f4ad4ac2a48, type: 3}
+  m_Script: {fileID: 11500000, guid: 799bfb1f9bd2b5e44a38dd1868dbc3f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1594489618

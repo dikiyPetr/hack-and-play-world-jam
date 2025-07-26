@@ -155,6 +155,7 @@ public class TilemapPresenter : MonoBehaviour
             ResolveEffect(result.humanEffect, map.humanPos, gameManager.humanController, intMove),
             ResolveEffect(result.demonEffect, map.demonPos, gameManager.demonController, intMove)
         );
+        OnFinishMove();
     }
 
     private async UniTask ResolveEffect(List<Effect> resultHumanEffect, PosHolder posHolder,
@@ -196,7 +197,7 @@ public class TilemapPresenter : MonoBehaviour
         }
     }
 
-    void OnMove()
+    void OnFinishMove()
     {
         if (map.demonPos.pos == map.humanPos.pos)
         {
@@ -213,7 +214,6 @@ public class TilemapPresenter : MonoBehaviour
     {
         posHolder.pos = effect.target;
         var position = GetTilePosition(posHolder.pos);
-        OnMove();
         gameManager.audioManager.PlaySteps();
         await character.MoveTo(position);
         gameManager.audioManager.StopSteps();
@@ -227,7 +227,6 @@ public class TilemapPresenter : MonoBehaviour
             posHolder.pos = effect.to;
             var position = GetTilePosition(posHolder.pos);
             gameManager.audioManager.PlayTeleport();
-            OnMove();
             character.TeleportTo(position);
         }
     }
