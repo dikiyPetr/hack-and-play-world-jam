@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd650994081d6542b27af0dd529f9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attemptsInLevel: 0
 --- !u!4 &200518996
 Transform:
   m_ObjectHideFlags: 0
@@ -1969,7 +1970,7 @@ PrefabInstance:
       objectReference: {fileID: 1594489620}
     - target: {fileID: 7261491415618052679, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
       propertyPath: nextScene
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7261491415618052679, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
       propertyPath: foreground

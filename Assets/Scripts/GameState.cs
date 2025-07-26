@@ -22,6 +22,7 @@ public enum SceneName
     TeleportTutorialLevel,
     TeleporAndMergeLevel,
     RatsLevel,
+    OutroLevel,
 }
 
 public class GameState : MonoBehaviour
@@ -52,16 +53,16 @@ public class GameState : MonoBehaviour
 
         switch (SceneManager.GetActiveScene().buildIndex)
         {
-            case 0:
+            case 1:
                 gameManager.demonController.Say(StringAssets.MessageLevel1);
                 break;
-            case 1:
+            case 2:
                 gameManager.demonController.Say(StringAssets.MessageLevel2);
                 break;
-            case 2:
+            case 3:
                 gameManager.demonController.Say(StringAssets.MessageLevel3);
                 break;
-            case 3:
+            case 4:
                 gameManager.demonController.Say(StringAssets.MessageLevel4);
                 break;
         }
@@ -110,11 +111,12 @@ public class GameState : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             return;
         }
+
         isStaredTimer = false;
         inputRecognizer.DisableKeyboardListener();
         stopGameUI.Show(type);
     }
-    
+
     public void NextLvl()
     {
         SceneManager.LoadScene(levelSetup.nextScene.ToString());

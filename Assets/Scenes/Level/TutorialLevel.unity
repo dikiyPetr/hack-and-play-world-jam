@@ -3904,7 +3904,7 @@ Transform:
   m_GameObject: {fileID: 808583919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.97, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4075,7 +4075,7 @@ PrefabInstance:
       objectReference: {fileID: 1594489620}
     - target: {fileID: 7261491415618052679, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
       propertyPath: nextScene
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7261491415618052679, guid: 4a51010d8149f9c4aaa762c8b43f7f0c, type: 3}
       propertyPath: foreground
@@ -4177,6 +4177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd650994081d6542b27af0dd529f9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attemptsInLevel: 0
 --- !u!4 &1384166926
 Transform:
   m_ObjectHideFlags: 0
