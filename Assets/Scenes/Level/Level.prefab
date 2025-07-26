@@ -68,7 +68,6 @@ MonoBehaviour:
   levelSetup: {fileID: 7261491415618052679}
   stopGameUI: {fileID: 2871495806152398075}
   inputRecognizer: {fileID: 7644072689016509218}
-  nextScene: 0
 --- !u!114 &7644072689016509218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753c814536f7c3346ad09ab682440fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: {fileID: 5017385143235135168}
 --- !u!1 &6081032607864172594
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +545,7 @@ MonoBehaviour:
   _humonPos: {x: 1, y: 1}
   _demonPos: {x: -1, y: 1}
   collectableCount: 2
+  nextScene: 0
 --- !u!1001 &2037353831829363428
 PrefabInstance:
   m_ObjectHideFlags: 0

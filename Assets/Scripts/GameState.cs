@@ -23,19 +23,32 @@ public enum SceneName
 public class GameState : MonoBehaviour
 {
     public LevelSetup levelSetup;
-    private int collected = 0;
+    private int _collected = 0;
     public StopGameUI stopGameUI;
     public InputRecognizer inputRecognizer;
+    private bool isStaredTimer = false;
+    public int collected => _collected;
+
     private void Start()
     {
-        collected = 0;
+        _collected = 0;
+        isStaredTimer = true;
+    }
+
+    private void Update()
+    {
+        if (isStaredTimer)
+        {
+            WorldState.Instance.AddTime((int) (Time.deltaTime* 1000));
+        }
     }
 
     public void Collect()
     {
-        collected++;
-        if (levelSetup.collectableCount == collected)
+        _collected++;
+        if (levelSetup.collectableCount == _collected)
         {
+            isStaredTimer = false;
             FinishLevel();
         }
     }
@@ -48,6 +61,8 @@ public class GameState : MonoBehaviour
 
     public void StopGame(StopGameType type)
     {
+        isStaredTimer = false;
+        WorldState.Instance.AddAttempt();
         inputRecognizer.DisableKeyboardListener();
         stopGameUI.Show(type);
     }

@@ -11,6 +11,7 @@ namespace UI
         private Button _restartButton;
         private Button _nextLvlButton;
         private Label _label;
+
         [SerializeField] private GameState gameState;
 
         private void Awake()
@@ -19,7 +20,9 @@ namespace UI
             _restartButton = _root.Q<Button>("Restart");
             _nextLvlButton = _root.Q<Button>("NextLvl");
             _label = _root.Q<Label>("Label");
+
         }
+
 
 
         private void OnEnable()
