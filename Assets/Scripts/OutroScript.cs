@@ -53,7 +53,7 @@ public class TextFadeSequence : MonoBehaviour
                 text.color = textColor;
                 if (timer <= 0f)
                 {
-                    text.text = secondMessage;
+                    text.text = secondMessage + $"\n\n You completed the game \nin {WorldState.Instance.timeFormat} \nwith {WorldState.Instance.attempts} attempts";
                     phase = 3;
                     timer = fadeDuration;
                 }
