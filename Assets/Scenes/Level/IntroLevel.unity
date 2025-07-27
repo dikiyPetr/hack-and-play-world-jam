@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 581537054}
-  delayBeforeFade: 6
+  delayBeforeFade: 2
   fadeDuration: 2
   nextScene: 1
 --- !u!1 &1281699379
